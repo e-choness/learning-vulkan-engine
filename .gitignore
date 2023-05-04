@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+#Specific folders
+/project-egg-core/SDL2
+/project-egg-core/x64
+.vs
