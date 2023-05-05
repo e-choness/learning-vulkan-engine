@@ -1,20 +1,23 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <memory>
 #include <SDL.h>
+#include <string>
 
 class Window {
 public:
-    Window(const char* title, int width, int height);
-    bool init();
+    // Constructor
+    Window(const std::string& title, int x, int y, int w, int h, Uint32 flags);
+
+    // Destructor
+    ~Window();
+
+    // Returns a const pointer to the window
     SDL_Window* get() const;
 
 private:
-    const char* title;
-    int width;
-    int height;
-    std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> sdlWindow{ nullptr, SDL_DestroyWindow };
+    // Pointer to the window
+    SDL_Window* window;
 };
 
-#endif
+#endif // WINDOW_H

@@ -1,47 +1,87 @@
 #include "Game.h"
 #include <iostream>
 
-Game::Game(const char* title, int width, int height) {
-    window = std::make_unique<Window>(title, width, height);
-    renderer = std::make_unique<Renderer>(window->get(), -1, SDL_RENDERER_ACCELERATED);
+Game::Game()
+    : window(nullptr), renderer(nullptr), isRunning(false)
+{
+}
+
+Game::~Game() {
+    cleanup();
 }
 
 bool Game::init() {
+    // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cerr << "SDL could not initialize! Error: " << SDL_GetError() << std::endl;
         return false;
     }
 
-    if (!window->init()) {
+    // Create the window
+    window = new Window("Game Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+    if (!window) {
+        std::cerr << "Window could not be created! Error: " << SDL_GetError() << std::endl;
         return false;
     }
+
+    // Create the renderer
+    renderer = new Render(window->get(), -1, SDL_RENDERER_ACCELERATED);
+    if (!renderer) {
+        std::cerr << "Renderer could not be created! Error: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
+    // Set the draw color to white
+    renderer->setDrawColor(255, 255, 255, 255);
+
+    // Set isRunning flag to true
+    isRunning = true;
 
     return true;
 }
 
 void Game::run() {
-    running = true;
-    while (running) {
-        // Poll for events (in this case, just the "QUIT" event)
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                running = false;
-            }
-        }
+    // Loop while the game is running
+    while (isRunning) {
+        // Handle SDL events
+        handleEvents();
 
-        // Clear the screen to black
-        SDL_SetRenderDrawColor(renderer->get(), 0, 0, 0, 255);
-        SDL_RenderClear(renderer->get());
+        // Clear the renderer
+        renderer->clear();
 
-        // Game logic and rendering code here...
+        // Draw game objects
 
-        // Update the screen
-        SDL_RenderPresent(renderer->get());
+        // Present the renderer to the screen
+        renderer->present();
     }
 }
 
 void Game::cleanup() {
+    // Destroy the renderer
+    if (renderer) {
+        delete renderer;
+        renderer = nullptr;
+    }
+
+    // Destroy the window
+    if (window) {
+        delete window;
+        window = nullptr;
+    }
+
+    // Quit SDL
     SDL_Quit();
 }
 
+void Game::handleEvents() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+        case SDL_QUIT:
+            isRunning = false;
+            break;
+        default:
+            break;
+        }
+    }
+}
