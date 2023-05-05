@@ -34,4 +34,5 @@
 #Specific folders
 /project-egg-core/SDL2
 /project-egg-core/x64
+/project-egg-core/Debug
 .vs

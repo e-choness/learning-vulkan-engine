@@ -1,22 +1,38 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <memory>
-#include <SDL.h>
 #include "Window.h"
-#include "Renderer.h"
+#include "Render.h"
 
 class Game {
 public:
-    Game(const char* title, int width, int height);
+    // Constructor
+    Game();
+
+    // Destructor
+    ~Game();
+
+    // Initializes the game
     bool init();
+
+    // Runs the game
     void run();
+
+    // Cleans up the game
     void cleanup();
 
 private:
-    std::unique_ptr<Window> window{ nullptr };
-    std::unique_ptr<Renderer> renderer{ nullptr };
-    bool running{ false };
+    // Pointer to the window
+    Window* window;
+
+    // Pointer to the renderer
+    Render* renderer;
+
+    // Flag to indicate if the game is running
+    bool isRunning;
+
+    // Handles SDL events
+    void handleEvents();
 };
 
-#endif
+#endif // GAME_H
