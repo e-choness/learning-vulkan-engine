@@ -2,7 +2,7 @@
 #include <iostream>
 
 Game::Game()
-    : window(nullptr), renderer(nullptr), isRunning(false)
+    : window(nullptr), renderer(nullptr), inputSystem(nullptr), isRunning(false)
 {
 }
 
@@ -31,6 +31,9 @@ bool Game::init() {
         return false;
     }
 
+    // Initiatialize Input System
+    inputSystem = new InputSystem();
+
     // Set the draw color to white
     renderer->setDrawColor(255, 255, 255, 255);
 
@@ -42,14 +45,26 @@ bool Game::init() {
 
 void Game::run() {
     // Loop while the game is running
-    while (isRunning) {
-        // Handle SDL events
-        handleEvents();
+    while (!inputSystem->quitRequested()) {
+        // Handle SDL events through Input System updates
+        inputSystem->update();
+
+        // Quit game if ESC is pressed
+        if (inputSystem->keyPressed(SDLK_ESCAPE)) {
+            break;
+        }
 
         // Clear the renderer
         renderer->clear();
 
-        // Draw game objects
+        // Set draw color of rectangular to black
+        renderer->setDrawColor(0, 0, 0, 255);
+
+        // Get the rectangular on the screen from (50, 50) to mouse position.
+        SDL_Rect rect = { inputSystem->getMouseX(), inputSystem->getMouseY(), 50, 50 };
+
+        // Fill the rectangular with black
+        renderer->fillRect(&rect);
 
         // Present the renderer to the screen
         renderer->present();
@@ -69,19 +84,12 @@ void Game::cleanup() {
         window = nullptr;
     }
 
+    if (inputSystem) {
+        delete inputSystem;
+        inputSystem = nullptr;
+    }
+
     // Quit SDL
     SDL_Quit();
 }
 
-void Game::handleEvents() {
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-        switch (event.type) {
-        case SDL_QUIT:
-            isRunning = false;
-            break;
-        default:
-            break;
-        }
-    }
-}

@@ -20,6 +20,9 @@ public:
     // Sets the drawing color of the renderer
     void setDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
+    // Fill a rectangular with color
+    void fillRect(SDL_Rect* rect);
+
     // Returns a const pointer to the renderer
     SDL_Renderer* get() const;
 
