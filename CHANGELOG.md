@@ -1,3 +1,6 @@
+Version 1.0.2 (05/09/2023)
+Added Input System with basic functions;
+
 Version 1.0.1 (05/05/2023)
 Separate renderer, window, utilities to separate files;
 Initialization, running, cleanup functions warpped into utilities;
