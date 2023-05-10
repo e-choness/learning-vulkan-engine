@@ -3,6 +3,7 @@
 
 #include "Window.h"
 #include "Render.h"
+#include "InputSystem.h"
 
 class Game {
 public:
@@ -28,11 +29,9 @@ private:
     // Pointer to the renderer
     Render* renderer;
 
+    InputSystem* inputSystem;
+
     // Flag to indicate if the game is running
     bool isRunning;
-
-    // Handles SDL events
-    void handleEvents();
 };
-
 #endif // GAME_H

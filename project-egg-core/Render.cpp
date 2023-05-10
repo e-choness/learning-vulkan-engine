@@ -29,6 +29,11 @@ void Render::setDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
+void Render::fillRect(SDL_Rect* rect)
+{
+    SDL_RenderFillRect(renderer, rect);
+}
+
 SDL_Renderer* Render::get() const {
     return renderer;
 }
