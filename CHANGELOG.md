@@ -1,3 +1,6 @@
+Version 1.0.3 (05/14/2023)
+Added Texture loader, needs updates to work;
+
 Version 1.0.2 (05/09/2023)
 Added Input System with basic functions;
 
