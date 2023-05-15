@@ -4,6 +4,7 @@
 #include "Window.h"
 #include "Render.h"
 #include "InputSystem.h"
+#include "AssetManager.h"
 
 class Game {
 public:
@@ -29,7 +30,11 @@ private:
     // Pointer to the renderer
     Render* renderer;
 
+    // Input system 
     InputSystem* inputSystem;
+
+    // Asset Manager
+    AssetManager* assetManager;
 
     // Flag to indicate if the game is running
     bool isRunning;

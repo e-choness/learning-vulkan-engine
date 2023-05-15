@@ -1,6 +1,9 @@
 #include "Game.h"
 #include <iostream>
 
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
+
 Game::Game()
     : window(nullptr), renderer(nullptr), inputSystem(nullptr), isRunning(false)
 {
@@ -13,26 +16,30 @@ Game::~Game() {
 bool Game::init() {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cerr << "SDL could not initialize! Error: " << SDL_GetError() << std::endl;
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL: %s", SDL_GetError());
         return false;
     }
 
     // Create the window
-    window = new Window("Game Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+    window = new Window("Game Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (!window) {
-        std::cerr << "Window could not be created! Error: " << SDL_GetError() << std::endl;
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create window: %s", SDL_GetError());
         return false;
     }
 
     // Create the renderer
     renderer = new Render(window->get(), -1, SDL_RENDERER_ACCELERATED);
     if (!renderer) {
-        std::cerr << "Renderer could not be created! Error: " << SDL_GetError() << std::endl;
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create renderer: %s", SDL_GetError());
         return false;
     }
 
-    // Initiatialize Input System
+    // Initialize Input System
     inputSystem = new InputSystem();
+
+    // Initialize the Asset Manager
+    assetManager = new AssetManager();
+    SDL_Texture* textures = assetManager.loadImage(renderer, "ghost.png");
 
     // Set the draw color to white
     renderer->setDrawColor(255, 255, 255, 255);
