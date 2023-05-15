@@ -34,6 +34,11 @@ void Render::fillRect(SDL_Rect* rect)
     SDL_RenderFillRect(renderer, rect);
 }
 
+void Render::drawCircle(int x, int y, int radius)
+{
+    //SDL_RenderDrawCircle(renderer, x, y, radius);
+}
+
 SDL_Renderer* Render::get() const {
     return renderer;
 }

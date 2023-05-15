@@ -23,6 +23,8 @@ public:
     // Fill a rectangular with color
     void fillRect(SDL_Rect* rect);
 
+    void drawCircle(int x, int y, int radius);
+
     // Returns a const pointer to the renderer
     SDL_Renderer* get() const;
 
