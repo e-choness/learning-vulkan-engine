@@ -38,8 +38,8 @@ bool Game::init() {
     inputSystem = new InputSystem();
 
     // Initialize the Asset Manager
-    assetManager = new AssetManager();
-    SDL_Texture* textures = assetManager.loadImage(renderer, "ghost.png");
+    //assetManager = new AssetManager();
+    //SDL_Texture* textures = assetManager->loadImage(renderer->get(), "ghost.png");
 
     // Set the draw color to white
     renderer->setDrawColor(255, 255, 255, 255);
