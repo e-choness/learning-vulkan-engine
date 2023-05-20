@@ -138,8 +138,9 @@
     <ClCompile Include="src\Core\Engine.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Core\EventsHandler.cpp" />
     <ClCompile Include="src\Core\InputSystem.cpp" />
-    <ClCompile Include="src\Core\Render.cpp" />
+    <ClCompile Include="src\Core\Renderer.cpp" />
     <ClCompile Include="src\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,8 +148,9 @@
     <ClInclude Include="src\Core\Engine.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="src\Core\EventsHandler.h" />
     <ClInclude Include="src\Core\InputSystem.h" />
-    <ClInclude Include="src\Core\Render.h" />
+    <ClInclude Include="src\Core\Renderer.h" />
     <ClInclude Include="src\Core\Window.h" />
   </ItemGroup>
   <ItemGroup>

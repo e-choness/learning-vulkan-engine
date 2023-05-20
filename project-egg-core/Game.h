@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include "Window.h"
-#include "Render.h"
+#include "Renderer.h"
 #include "InputSystem.h"
 #include "AssetManager.h"
 
@@ -35,7 +35,7 @@ private:
     Window* window;
 
     // Pointer to the renderer
-    Render* renderer;
+    Renderer* renderer;
 
     // Input system 
     InputSystem* inputSystem;

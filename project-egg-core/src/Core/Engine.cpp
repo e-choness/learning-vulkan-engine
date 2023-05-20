@@ -2,7 +2,7 @@
 
 Engine* Engine::s_Instance = nullptr;
 
-Engine::Engine() {
+Engine::Engine(): m_window(nullptr), m_renderer(nullptr), m_IsRunning(false), m_EventsHandler(nullptr) {
 	SDL_Log("The engine now has the one and only instance.");
 }
 
@@ -13,8 +13,19 @@ Engine* Engine::GetInstance()
 
 bool Engine::Init()
 {
-	m_IsRunning = true;
-	SDL_Log("The engine is initialized and running.");
+	// Check
+	m_IsRunning = InitCheck();
+	if (!m_IsRunning) { return m_IsRunning; }
+	
+	// Initialize display window
+	m_window = new Window("Egg Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+	// Initialize renderer in the window
+	m_renderer = new Renderer(m_window->GetInstance(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	m_IsRunning = m_window->IsRunning() && m_renderer->IsRunning();
+
+	m_EventsHandler = new EventsHandler();
+	
 	return m_IsRunning;
 }
 
@@ -22,7 +33,6 @@ bool Engine::Clean()
 {
 	if(s_Instance) {
 		delete s_Instance;
-		s_Instance = nullptr;
 		SDL_Log("The engine now has been cleaned.");
 		return true;
 	}	
@@ -43,15 +53,25 @@ void Engine::Update(float deltaTime)
 
 void Engine::Render()
 {
-	SDL_Log("The engine will initiate renderer here.");
+	SDL_Log("The engine is renderering images.");
+	m_renderer->Render();
 }
 
 void Engine::Events()
 {
-	SDL_Log("The engine will handle events here.");
+	SDL_Log("The engine handles events here.");
+	
+	// 
+	m_EventsHandler->QuitEvent();
+	m_IsRunning = m_EventsHandler->IsRunning();
 }
 
-bool Engine::isRunning()
-{
-	return m_IsRunning;
+bool Engine::InitCheck() {
+	if (SDL_Init(SDL_INIT_VIDEO) != 0 && IMG_Init(IMG_INIT_JPG || IMG_INIT_PNG) != 0) {
+		SDL_Log("Failed to initilize SDL: %s", SDL_GetError());
+		return false;
+	}
+
+	SDL_Log("The engine is initialized and running.");
+	return true;
 }
