@@ -28,7 +28,7 @@ bool Game::init() {
     }
 
     // Create the renderer
-    renderer = new Render(window->get(), -1, SDL_RENDERER_ACCELERATED);
+    renderer = new Renderer(window->GetInstance(), -1, SDL_RENDERER_ACCELERATED);
     if (!renderer) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create renderer: %s", SDL_GetError());
         return false;
@@ -36,13 +36,6 @@ bool Game::init() {
 
     // Initialize Input System
     inputSystem = new InputSystem();
-
-    // Initialize the Asset Manager
-    //assetManager = new AssetManager();
-    //SDL_Texture* textures = assetManager->loadImage(renderer->get(), "ghost.png");
-
-    // Set the draw color to white
-    renderer->setDrawColor(255, 255, 255, 255);
 
     // Set isRunning flag to true
     isRunning = true;
@@ -62,10 +55,7 @@ void Game::run() {
         }
 
         // Clear the renderer
-        renderer->clear();
-
-        // Set draw color of rectangular to black
-        renderer->setDrawColor(0, 0, 0, 255);
+        renderer->Clear();
 
         // Get the rectangular on the screen from (50, 50) to mouse position.
         SDL_Rect rect = { inputSystem->getMouseX(), inputSystem->getMouseY(), 50, 50 };
@@ -74,7 +64,7 @@ void Game::run() {
         renderer->fillRect(&rect);
 
         // Present the renderer to the screen
-        renderer->present();
+        renderer->Render();
     }
 }
 

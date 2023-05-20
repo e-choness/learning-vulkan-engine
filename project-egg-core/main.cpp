@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
         Engine::GetInstance()->Render();
 
         // Quit game
-        Engine::GetInstance()->Quit();
+        //Engine::GetInstance()->Quit();
     }
 
     // Clean up engine instances and members
