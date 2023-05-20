@@ -1,3 +1,7 @@
+Version 1.0.4 (05/19/2023)
+Restructure Engine Architecture;
+Added SDL2 Image library.
+
 Version 1.0.3 (05/14/2023)
 Added Texture loader, needs updates to work;
 

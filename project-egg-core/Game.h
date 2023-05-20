@@ -8,11 +8,9 @@
 
 class Game {
 public:
-    // Constructor
-    Game();
-
-    // Destructor
-    ~Game();
+    static Game* GetInstance() {
+        return game_Instance = (game_Instance != nullptr) ? game_Instance : new Game();
+    }
 
     // Initializes the game
     bool init();
@@ -24,6 +22,15 @@ public:
     void cleanup();
 
 private:
+    // Constructor
+    Game();
+
+    // Destructor
+    ~Game();
+
+    //Create a static Game instance
+    static Game* game_Instance;
+
     // Pointer to the window
     Window* window;
 
@@ -34,7 +41,7 @@ private:
     InputSystem* inputSystem;
 
     // Asset Manager
-    AssetManager* assetManager;
+    //AssetManager* assetManager;
 
     // Flag to indicate if the game is running
     bool isRunning;

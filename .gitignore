@@ -6,6 +6,7 @@
 *.lo
 *.o
 *.obj
+*.zip
 
 # Precompiled Headers
 *.gch
@@ -33,6 +34,7 @@
 
 #Specific folders
 /project-egg-core/SDL2
+/project-egg-core/SDL2_image
 /project-egg-core/x64
 /project-egg-core/Debug
 .vs
