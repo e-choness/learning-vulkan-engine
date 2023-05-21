@@ -26,11 +26,12 @@ public:
 	void Render();
 	void Events();
 
-	inline bool isRunning() { return m_IsRunning; };
+	inline bool isRunning() { return m_IsRunning; }
+
+	Renderer* GetRenderer();
 
 protected:
-	// The only engine instance here
-	static Engine* s_Instance;
+	
 
 private:
 	// The engine onstructor
@@ -40,6 +41,9 @@ private:
 
 	// The flag which indicates the engine is running
 	bool m_IsRunning;
+
+	// The only engine instance here
+	static Engine* s_Instance;
 
 	// Window
 	Window* m_window;
