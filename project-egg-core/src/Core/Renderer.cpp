@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "AssetManager.h"
 #include <iostream>
 
 Renderer::Renderer(SDL_Window* window, int index, Uint32 flags)
@@ -24,6 +25,8 @@ SDL_Renderer* Renderer::GetInstance() const {
 
 void Renderer::Render() {
     SDL_SetRenderDrawColor(s_Renderer, 124, 218, 254, 255);
+    SDL_RenderClear(s_Renderer);
+    AssetManager::GetInstance()->DrawTexture(s_Renderer, "ghost", 100, 100, 600, 660);
     SDL_RenderPresent(s_Renderer);
 }
 

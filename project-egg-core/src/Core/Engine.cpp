@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "AssetManager.h"
 
 Engine* Engine::s_Instance = nullptr;
 
@@ -25,17 +26,41 @@ bool Engine::Init()
 	m_IsRunning = m_window->IsRunning() && m_renderer->IsRunning();
 
 	m_EventsHandler = new EventsHandler();
+
+	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost", "assets/characters/ghost.png");
+	
 	
 	return m_IsRunning;
 }
 
 bool Engine::Clean()
 {
-	if(s_Instance) {
+	if (AssetManager::GetInstance()) {
+		AssetManager::GetInstance()->CleanTexture();
+		SDL_Log("The textures now have been cleaned.");
+	}
+
+	if (m_EventsHandler) {
+		delete m_EventsHandler;
+		SDL_Log("The events handler now has been cleaned.");
+	}
+
+	if (m_renderer) {
+		delete m_renderer;
+		SDL_Log("The renderer now has been cleaned.");
+	}
+
+	if (m_window) {
+		delete m_window;
+		SDL_Log("The window now has been cleaned.");
+	}
+
+	if (s_Instance) {
 		delete s_Instance;
 		SDL_Log("The engine now has been cleaned.");
 		return true;
-	}	
+	}
+
 	SDL_Log("The engine has trouble clean up everything.");
 	return false;
 }
@@ -74,4 +99,10 @@ bool Engine::InitCheck() {
 
 	SDL_Log("The engine is initialized and running.");
 	return true;
+}
+
+
+Renderer* Engine::GetRenderer()
+{
+	return m_renderer;
 }

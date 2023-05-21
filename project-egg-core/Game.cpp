@@ -1,9 +1,6 @@
 #include "Game.h"
 #include <iostream>
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-
 Game::Game()
     : window(nullptr), renderer(nullptr), inputSystem(nullptr), isRunning(false)
 {
