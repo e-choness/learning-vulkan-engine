@@ -29,6 +29,9 @@ bool Engine::Init()
 
 	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost", "assets/characters/ghost.png");
 	
+	Vector2D v1(1.0f, 1.0f), v2(2.0f, 2.0f), v3;
+	v3 = v1 + v2;
+	v3.LogVector("Vector v3: ");
 	
 	return m_IsRunning;
 }
@@ -55,6 +58,9 @@ bool Engine::Clean()
 		SDL_Log("The window now has been cleaned.");
 	}
 
+	IMG_Quit();
+	SDL_Quit();
+
 	if (s_Instance) {
 		delete s_Instance;
 		SDL_Log("The engine now has been cleaned.");
@@ -73,18 +79,18 @@ void Engine::Quit()
 
 void Engine::Update(float deltaTime)
 {
-	SDL_Log("The engine is updating now.");
+	//SDL_Log("The engine is updating now.");
 }
 
 void Engine::Render()
 {
-	SDL_Log("The engine is renderering images.");
+	//SDL_Log("The engine is renderering images.");
 	m_renderer->Render();
 }
 
 void Engine::Events()
 {
-	SDL_Log("The engine handles events here.");
+	//SDL_Log("The engine handles events here.");
 	
 	// 
 	m_EventsHandler->QuitEvent();

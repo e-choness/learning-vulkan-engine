@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)SDL2\lib\x64;$(ProjectDir)SDL2_image\lib\x64;$(ProjectDir)src\Core;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +142,7 @@
     <ClCompile Include="src\Core\Renderer.cpp" />
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Graphics\AssetManager.cpp" />
+    <ClCompile Include="src\Physics\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Engine.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="src\Core\Renderer.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Graphics\AssetManager.h" />
+    <ClInclude Include="src\Physics\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="project-egg-core.rc" />
