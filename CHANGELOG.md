@@ -1,3 +1,6 @@
+Version 1.0.7 (05/21/2023)
+Added 2D vector component for physics system.
+
 Version 1.0.6 (05/21/2023)
 Re-write asset manager, rendering a little ghost on the screen :)
 
@@ -5,7 +8,7 @@ Version 1.0.5 (05/20/2023)
 Added event handler.
 
 Version 1.0.4 (05/19/2023)
-Restructure Engine Architecture;
+Restructure Engine Architecture.
 Added SDL2 Image library.
 
 Version 1.0.3 (05/14/2023)
