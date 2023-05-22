@@ -37,6 +37,12 @@
     <Filter Include="Resource Files\assets\background">
       <UniqueIdentifier>{c450af7a-6e57-42c5-959c-4f6e904eda0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{54d66d59-75e4-4b5c-827d-23bb2f29435c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{2bb9b2a3-32e4-4d29-b536-0e85b03731a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +69,9 @@
     <ClCompile Include="src\Graphics\AssetManager.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Physics\Vector2D.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Engine.h">
@@ -88,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="src\Graphics\AssetManager.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Vector2D.h">
+      <Filter>Header Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

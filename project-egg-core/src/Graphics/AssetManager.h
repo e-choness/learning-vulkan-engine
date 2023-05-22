@@ -15,7 +15,7 @@ public:
 
 	bool LoadTexture(const char* id, const char* filename);
 	
-	void DripTexture(const char* id);
+	void DropTexture(const char* id);
 	
 	void CleanTexture();
 
