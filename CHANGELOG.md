@@ -1,3 +1,6 @@
+Version 1.0.8 (05/25/2023)
+Added vector transform for physics system.
+
 Version 1.0.7 (05/21/2023)
 Added 2D vector component for physics system.
 
