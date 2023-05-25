@@ -142,6 +142,7 @@
     <ClCompile Include="src\Core\Renderer.cpp" />
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Graphics\AssetManager.cpp" />
+    <ClCompile Include="src\Physics\Transform.cpp" />
     <ClCompile Include="src\Physics\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="src\Core\Renderer.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Graphics\AssetManager.h" />
+    <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\Physics\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>

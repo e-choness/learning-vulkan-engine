@@ -72,6 +72,9 @@
     <ClCompile Include="src\Physics\Vector2D.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Physics\Transform.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Engine.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Physics\Vector2D.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Transform.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
