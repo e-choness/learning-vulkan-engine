@@ -20,8 +20,8 @@ public:
 	}
 
 	// 2D vector cross product operation
-	// If v2 isi on the left hand side of v1, the cross product is positive;
-	// If v2 is on the right hand side of v1, the cross product is negative;
+	// If v2 is on the left hand side of v1, the cross product is negative;
+	// If v2 is on the right hand side of v1, the cross product is positive;
 	// If v2 is parallel to v1, the cross product is 0;
 	// Useful when calculating sin.
 	inline float operator*(Vector2D v2) const {
