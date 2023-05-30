@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "AssetManager.h"
+
 
 Engine* Engine::s_Instance = nullptr;
 
@@ -29,9 +29,9 @@ bool Engine::Init()
 
 	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost", "assets/characters/ghost.png");
 	
-	Vector2D v1(1.0f, 1.0f), v2(2.0f, 2.0f), v3;
-	v3 = v1 + v2;
-	v3.LogVector("Vector v3: ");
+	
+	Transform transform;
+	transform.Log("This tranformation is: ");
 	
 	return m_IsRunning;
 }

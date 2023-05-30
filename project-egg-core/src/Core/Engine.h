@@ -9,6 +9,8 @@
 #include"Renderer.h"
 #include"EventsHandler.h"
 #include"Vector2D.h"
+#include"AssetManager.h"
+#include"Transform.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
