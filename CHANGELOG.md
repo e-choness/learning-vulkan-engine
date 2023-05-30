@@ -1,3 +1,6 @@
+Version 1.0.9 (05/29/2023)
+Add Game Object for inheritance.
+
 Version 1.0.8 (05/25/2023)
 Added vector transform for physics system.
 
