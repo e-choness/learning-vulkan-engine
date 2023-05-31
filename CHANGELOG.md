@@ -1,3 +1,6 @@
+Version 1.1.0 (05/30/2023)
+Add Characters for rendering sprites.
+
 Version 1.0.9 (05/29/2023)
 Add Game Object for inheritance.
 
