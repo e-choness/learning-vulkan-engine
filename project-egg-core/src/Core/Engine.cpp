@@ -108,7 +108,7 @@ bool Engine::InitCheck() {
 }
 
 
-Renderer* Engine::GetRenderer()
+SDL_Renderer* Engine::GetRenderer()
 {
-	return m_renderer;
+	return m_renderer->GetInstance();
 }

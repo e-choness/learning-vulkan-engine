@@ -31,7 +31,7 @@ public:
 
 	inline bool isRunning() { return m_IsRunning; }
 
-	Renderer* GetRenderer();
+	SDL_Renderer* GetRenderer();
 
 protected:
 	
