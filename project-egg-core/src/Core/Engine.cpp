@@ -2,6 +2,8 @@
 
 
 Engine* Engine::s_Instance = nullptr;
+Ghost* ghost = nullptr;
+Properties* ghostProperties = nullptr;
 
 Engine::Engine(): m_window(nullptr), m_renderer(nullptr), m_IsRunning(false), m_EventsHandler(nullptr) {
 	SDL_Log("The engine now has the one and only instance.");
@@ -27,8 +29,10 @@ bool Engine::Init()
 
 	m_EventsHandler = new EventsHandler();
 
-	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost", "assets/characters/ghost.png");
-	
+
+	m_IsRunning = AssetManager::GetInstance()->LoadTexture("animated-ghost", "assets/characters/ghost-sheet.png");
+	ghostProperties = new Properties("animated-ghost", 100, 50, 50, 55);
+	ghost = new Ghost(ghostProperties);
 	
 	Transform transform;
 	transform.Log("This tranformation is: ");
@@ -38,8 +42,9 @@ bool Engine::Init()
 
 bool Engine::Clean()
 {
-	if (AssetManager::GetInstance()) {
-		AssetManager::GetInstance()->CleanTexture();
+	if (ghost) {
+		ghost->Clean();
+		delete ghost;
 		SDL_Log("The textures now have been cleaned.");
 	}
 
@@ -80,12 +85,16 @@ void Engine::Quit()
 void Engine::Update(float deltaTime)
 {
 	//SDL_Log("The engine is updating now.");
+	ghost->Update(deltaTime);
 }
 
 void Engine::Render()
 {
 	//SDL_Log("The engine is renderering images.");
-	m_renderer->Render();
+	SDL_SetRenderDrawColor(m_renderer->GetInstance(), 124, 218, 254, 255);
+	SDL_RenderClear(m_renderer->GetInstance());
+	ghost->Render();
+	SDL_RenderPresent(m_renderer->GetInstance());
 }
 
 void Engine::Events()

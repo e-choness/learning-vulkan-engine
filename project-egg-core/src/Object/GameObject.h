@@ -7,11 +7,11 @@
 
 struct Properties {
 public:
-	Properties(float x, float y, int width, int height, const char* textureId, SDL_RendererFlip flip = SDL_FLIP_NONE):
+	Properties(const char* textureId, int x, int y, int width, int height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
 		X(x), Y(y), Width(width), Height(height), TextureId(textureId), Flip(flip) {
 	}
 public:
-	float X, Y;
+	int X, Y;
 	int Width, Height;
 	const char* TextureId;
 	SDL_RendererFlip Flip;
@@ -19,14 +19,7 @@ public:
 
 class GameObject : public IObject {
 public:
-	GameObject(Properties* properties) :
-		m_TextureId(properties->TextureId),
-		m_Width(properties->Width),
-		m_Height(properties->Height),
-		m_Flip(properties->Flip) {
-		
-		m_Transfrom = new Transform(properties->X, properties->Y);
-	};
+	GameObject(Properties* properties);
 
 	virtual void Render() = 0;
 	virtual void Update(float deltaTime) = 0;

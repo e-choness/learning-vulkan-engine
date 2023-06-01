@@ -13,7 +13,6 @@ public:
 
 protected:
 	const char* m_Name;
-
 };
 
 #endif // !CHARACTER_H

@@ -19,9 +19,9 @@ public:
 	
 	void CleanTexture();
 
-	void DrawTexture(SDL_Renderer* renderer, const char* id, int x, int y, int width, int height, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawTexture(const char* id, int x, int y, int width, int height, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-	void DrawFrame(SDL_Renderer* renderer, const char* id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawFrame(const char* id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 private:
 	AssetManager();

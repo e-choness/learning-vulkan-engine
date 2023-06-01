@@ -1,8 +1,11 @@
+Version 1.1.1(06/01/2023)
+Added an animated ghost on the screen :D
+
 Version 1.1.0 (05/30/2023)
-Add Characters for rendering sprites.
+Added Characters for rendering sprites.
 
 Version 1.0.9 (05/29/2023)
-Add Game Object for inheritance.
+Added Game Object for inheritance.
 
 Version 1.0.8 (05/25/2023)
 Added vector transform for physics system.
