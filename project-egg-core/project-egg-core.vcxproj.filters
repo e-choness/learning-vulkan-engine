@@ -43,6 +43,18 @@
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{2bb9b2a3-32e4-4d29-b536-0e85b03731a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Characters">
+      <UniqueIdentifier>{e56c5f36-8d3d-476a-a52c-5b29fc71340f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{83eeb976-a203-4983-9579-13f4176fea29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{d470bc6f-0b54-4dd0-95ef-e0d60507d27f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Characters">
+      <UniqueIdentifier>{219287b8-02e7-49ef-94ae-84df3f89fc7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +86,15 @@
     </ClCompile>
     <ClCompile Include="src\Physics\Transform.cpp">
       <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Object\GameObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Characters\Character.cpp">
+      <Filter>Source Files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Characters\Ghost.cpp">
+      <Filter>Source Files\Characters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +128,18 @@
     <ClInclude Include="src\Physics\Transform.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Object\IObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object\GameObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Characters\Character.h">
+      <Filter>Header Files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Characters\Ghost.h">
+      <Filter>Header Files\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="project-egg-core.rc">
@@ -115,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\characters\ghost.png">
+      <Filter>Resource Files\assets\characters</Filter>
+    </Image>
+    <Image Include="assets\characters\ghost-sheet.png">
       <Filter>Resource Files\assets\characters</Filter>
     </Image>
   </ItemGroup>

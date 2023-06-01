@@ -11,6 +11,7 @@
 #include"Vector2D.h"
 #include"AssetManager.h"
 #include"Transform.h"
+#include"Ghost.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;

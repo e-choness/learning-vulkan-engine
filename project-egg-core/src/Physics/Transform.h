@@ -7,13 +7,13 @@
 
 class Transform {
 public:
-	Transform(float x = 0.0f, float y = 0.0f);
+	Transform(int x = 0, int y = 0);
 	void Log(const char* message);
 
-	float X, Y;
+	int X, Y;
 private:
-	inline void TranslateX(float x) { X += x; }
-	inline void TranslateY(float y) { Y += y; }
+	inline void TranslateX(int x) { X += x; }
+	inline void TranslateY(int y) { Y += y; }
 	void Translate(Vector2D* v);
 };
 

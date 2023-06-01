@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)SDL2\lib\x64;$(ProjectDir)SDL2_image\lib\x64;$(ProjectDir)src\Core;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Characters\Character.cpp" />
+    <ClCompile Include="src\Characters\Ghost.cpp" />
     <ClCompile Include="src\Core\Engine.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -142,10 +144,13 @@
     <ClCompile Include="src\Core\Renderer.cpp" />
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Graphics\AssetManager.cpp" />
+    <ClCompile Include="src\Object\GameObject.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
     <ClCompile Include="src\Physics\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Characters\Character.h" />
+    <ClInclude Include="src\Characters\Ghost.h" />
     <ClInclude Include="src\Core\Engine.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="resource.h" />
@@ -154,6 +159,8 @@
     <ClInclude Include="src\Core\Renderer.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Graphics\AssetManager.h" />
+    <ClInclude Include="src\Object\IObject.h" />
+    <ClInclude Include="src\Object\GameObject.h" />
     <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\Physics\Vector2D.h" />
   </ItemGroup>
@@ -161,6 +168,7 @@
     <ResourceCompile Include="project-egg-core.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\characters\ghost-sheet.png" />
     <Image Include="assets\characters\ghost.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

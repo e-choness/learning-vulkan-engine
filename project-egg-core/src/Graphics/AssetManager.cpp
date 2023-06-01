@@ -26,18 +26,18 @@ bool AssetManager::LoadTexture(const char* id, const char* filename)
 	return true;
 }
 
-void AssetManager::DrawTexture(SDL_Renderer* renderer, const char* id, int x, int y, int width, int height, SDL_RendererFlip flip)
+void AssetManager::DrawTexture(const char* id, int x, int y, int width, int height, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect = { 0, 0, width, height };
 	SDL_Rect destRect = { x, y, width, height };
-	SDL_RenderCopyEx(renderer, m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
+	SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
 }
 
-void AssetManager::DrawFrame(SDL_Renderer* renderer, const char* id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip)
+void AssetManager::DrawFrame(const char* id, int x, int y, int width, int height, int row, int frame, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect = { width * frame, height * row, width, height };
 	SDL_Rect destRect = { x, y, width, height };
-	SDL_RenderCopyEx(renderer, )
+	SDL_RenderCopyEx(Engine::GetInstance()->GetRenderer(), m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
 }
 
 void AssetManager::DropTexture(const char* id)
