@@ -1,4 +1,7 @@
-Version 1.1.1(06/01/2023)
+Version 1.1.2 (06/02/2023)
+Added animation entity for future characters.
+
+Version 1.1.1 (06/01/2023)
 Added an animated ghost on the screen :D
 
 Version 1.1.0 (05/30/2023)

@@ -1,4 +1,5 @@
-﻿#ifndef GAMEOBJECT_H
+﻿#pragma once
+#ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
 #include"IObject.h"
