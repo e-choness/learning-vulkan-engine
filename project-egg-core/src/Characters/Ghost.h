@@ -1,8 +1,10 @@
+#pragma once
 #ifndef GHOST_H
 #define GHOST_H
 
 #include "Character.h"
 #include "AssetManager.h"
+#include "Animation.h"
 #include "SDL.h"
 
 class Ghost: public Character {
@@ -12,11 +14,8 @@ public:
 	void Render();
 	void Update(float deltaTime);
 	void Clean();
-private:
-	int m_Row;
-	int m_Frame;
-	int m_FrameCount;
-	int m_AnimationSpeed;
+
+	Animation* m_Animation;
 };
 
 #endif // !GHOST_H

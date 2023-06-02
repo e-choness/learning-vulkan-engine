@@ -1,3 +1,4 @@
+#pragma once
 #ifndef IOBJECT_H
 #define IOBJECT_H
 
