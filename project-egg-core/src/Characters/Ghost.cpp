@@ -2,6 +2,7 @@
 
 Ghost::Ghost(Properties* properties) : Character(properties)
 {
+	m_RigidBody = new RigidBody();
 	m_Animation = new Animation();
 	m_Animation->SetProperties(m_TextureId, 0, 8, 80, SDL_FLIP_HORIZONTAL);
 }
@@ -13,6 +14,8 @@ void Ghost::Render()
 
 void Ghost::Update(float deltaTime)
 {
+	m_RigidBody->Update(deltaTime);
+	m_Transfrom->Translate(m_RigidBody->GetPosition());
 	m_Animation->Update(deltaTime);
 }
 

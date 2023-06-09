@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     Engine::GetInstance()->Init();
 
     // Set delta time for udpate
-    float m_DeltaTime = 0.0f;
+    float deltaTime = 1.0f;
 
     // Handle game events, updates and render as long as the engine is running
     while (Engine::GetInstance()->isRunning()) {
@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
         Engine::GetInstance()->Events();
 
         // Engine updates objects and entities movements
-        Engine::GetInstance()->Update(m_DeltaTime);
+        Engine::GetInstance()->Update(deltaTime);
 
         // Engine renders updated states
         Engine::GetInstance()->Render();

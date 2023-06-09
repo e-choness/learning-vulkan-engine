@@ -10,7 +10,7 @@ void Animation::Update(float deltaTime)
 	m_SpriteFrame = (SDL_GetTicks() / m_AnimationSpeed) % m_FrameCount;
 }
 
-void Animation::Render(int x, int y, int spriteWidth, int spriteHeight)
+void Animation::Render(float x, float y, int spriteWidth, int spriteHeight)
 {
 	AssetManager::GetInstance()->DrawFrame(m_TextureId, x, y, spriteWidth, spriteHeight, m_SpriteRow, m_SpriteFrame, m_Flip);
 }
