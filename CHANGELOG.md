@@ -1,3 +1,6 @@
+Version 1.1.3(06/08/2023)
+Get animation entity working by resolve linker error using forward declaration.
+
 Version 1.1.2 (06/02/2023)
 Added animation entity for future characters.
 
