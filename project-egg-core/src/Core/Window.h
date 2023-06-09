@@ -3,7 +3,6 @@
 #define WINDOW_H
 
 #include <SDL.h>
-#include <iostream>
 
 class Window {
 public:

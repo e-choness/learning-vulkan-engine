@@ -2,7 +2,7 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include <SDL.h>
+#include "SDL.h"
 #include "AssetManager.h"
 
 class Animation {
