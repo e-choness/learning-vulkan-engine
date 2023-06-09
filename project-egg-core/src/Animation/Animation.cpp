@@ -1,7 +1,7 @@
 #include "Animation.h"
 
 Animation::Animation()
-	: m_SpriteRow(1), m_SpriteFrame(0), m_AnimationSpeed(0), m_FrameCount(0), m_TextureId("")
+	: m_SpriteRow(0), m_SpriteFrame(0), m_AnimationSpeed(0), m_FrameCount(0), m_TextureId("")
 {
 }
 
