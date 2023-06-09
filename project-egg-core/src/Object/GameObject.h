@@ -8,11 +8,11 @@
 
 struct Properties {
 public:
-	Properties(const char* textureId, int x, int y, int width, int height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
+	Properties(const char* textureId, float x, float y, int width, int height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
 		X(x), Y(y), Width(width), Height(height), TextureId(textureId), Flip(flip) {
 	}
 public:
-	int X, Y;
+	float X, Y;
 	int Width, Height;
 	const char* TextureId;
 	SDL_RendererFlip Flip;

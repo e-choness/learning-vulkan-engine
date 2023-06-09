@@ -146,6 +146,7 @@
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Graphics\AssetManager.cpp" />
     <ClCompile Include="src\Object\GameObject.cpp" />
+    <ClCompile Include="src\Physics\RigidBody.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
     <ClCompile Include="src\Physics\Vector2D.cpp" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="src\Graphics\AssetManager.h" />
     <ClInclude Include="src\Object\IObject.h" />
     <ClInclude Include="src\Object\GameObject.h" />
+    <ClInclude Include="src\Physics\RigidBody.h" />
     <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\Physics\Vector2D.h" />
   </ItemGroup>

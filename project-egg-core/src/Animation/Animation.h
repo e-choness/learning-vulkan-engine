@@ -10,7 +10,7 @@ public:
 	Animation();
 
 	void Update(float deltaTime);
-	void Render(int x, int y, int spriteWidth, int spriteHeight);
+	void Render(float x, float y, int spriteWidth, int spriteHeight);
 	void SetProperties(const char* textureId, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 

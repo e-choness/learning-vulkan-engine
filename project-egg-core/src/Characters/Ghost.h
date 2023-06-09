@@ -5,6 +5,7 @@ class Animation;
 #include "Character.h"
 #include "AssetManager.h"
 #include "Animation.h"
+#include "RigidBody.h"
 
 class Ghost: public Character {
 public:
@@ -15,6 +16,7 @@ public:
 	void Clean();
 
 	Animation* m_Animation;
+	RigidBody* m_RigidBody;
 };
 
 #endif // !GHOST_H
