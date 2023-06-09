@@ -4,8 +4,8 @@
 
 #include "Character.h"
 #include "AssetManager.h"
-#include "Animation.h"
-#include "SDL.h"
+
+class Animation;
 
 class Ghost: public Character {
 public:
@@ -17,5 +17,5 @@ public:
 
 	Animation* m_Animation;
 };
-
+#include "Animation.h"
 #endif // !GHOST_H
