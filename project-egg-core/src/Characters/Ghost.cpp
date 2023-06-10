@@ -4,7 +4,9 @@ Ghost::Ghost(Properties* properties) : Character(properties)
 {
 	m_RigidBody = new RigidBody();
 	m_Animation = new Animation();
-	m_Animation->SetProperties(m_TextureId, 0, 8, 80, SDL_FLIP_HORIZONTAL);
+	m_RigidBody->UnsetGravity();
+	/*m_TextureId = "ghost-floating";
+	m_Animation->SetProperties(m_TextureId, 0, 8, 80, SDL_FLIP_HORIZONTAL);*/
 }
 
 void Ghost::Render()
@@ -13,9 +15,13 @@ void Ghost::Render()
 }
 
 void Ghost::Update(float deltaTime)
-{
+{	
+	
 	m_RigidBody->Update(deltaTime);
-	m_RigidBody->ApplyForce(Vector2D(7.0f, 1.0f));
+	
+	Floating();
+	Moving();
+
 	m_Transfrom->Translate(m_RigidBody->GetPosition());
 	m_Animation->Update(deltaTime);
 }
@@ -23,4 +29,31 @@ void Ghost::Update(float deltaTime)
 void Ghost::Clean()
 {
 	AssetManager::GetInstance()->CleanTexture();
+}
+
+void Ghost::Floating() {
+	m_TextureId = "ghost-floating";
+
+	m_Animation->SetProperties(m_TextureId, 0, 8, 100, SDL_FLIP_HORIZONTAL);
+	m_RigidBody->UnsetForce();
+}
+
+void Ghost::Moving() {
+	m_TextureId = "ghost-running";
+	
+	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_A)) {		
+		m_Animation->SetProperties(m_TextureId, 0, 6, 50);
+		m_RigidBody->ApplyForceX(-20.0f);
+		
+	}
+	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_D)) {		
+		m_Animation->SetProperties(m_TextureId, 0, 6, 50, SDL_FLIP_HORIZONTAL);
+		m_RigidBody->ApplyForceX(20.0f);
+	}
+	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_W)) {
+		m_RigidBody->ApplyForceY(-10.0f);
+	}
+	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_S)) {
+		m_RigidBody->ApplyForceY(10.0f);
+	}
 }

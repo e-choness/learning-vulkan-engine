@@ -29,8 +29,9 @@ bool Engine::Init()
 	m_EventsHandler = new EventsHandler();
 
 
-	m_IsRunning = AssetManager::GetInstance()->LoadTexture("animated-ghost", "assets/characters/ghost-sheet.png");
-	ghostProperties = new Properties("animated-ghost", 100, 50, 50, 55);
+	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-floating", "assets/characters/ghost-sheet.png");
+	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-running", "assets/characters/ghost-run-sheet.png");
+	ghostProperties = new Properties("ghost-floating", 100, 50, 50, 55);
 	ghost = new Ghost(ghostProperties);
 	
 	Transform transform;
@@ -88,7 +89,7 @@ void Engine::Quit()
 
 void Engine::Update(float deltaTime)
 {
-	InputSystem::GetInstance()->Update();
+	//InputSystem::GetInstance()->Update();
 	ghost->Update(deltaTime);
 }
 

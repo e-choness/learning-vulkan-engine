@@ -170,6 +170,8 @@
     <ResourceCompile Include="project-egg-core.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\characters\ghost-run-sheet.png" />
+    <Image Include="assets\characters\ghost-run.png" />
     <Image Include="assets\characters\ghost-sheet.png" />
     <Image Include="assets\characters\ghost.png" />
   </ItemGroup>
