@@ -1,3 +1,6 @@
+Version 1.1.5 (06/10/2023)
+Updated input system.
+
 Version 1.1.4 (06/09/2023)
 Added RigidBody component to the ghost.
 
