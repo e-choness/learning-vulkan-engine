@@ -88,7 +88,7 @@ void Engine::Quit()
 
 void Engine::Update(float deltaTime)
 {
-	//SDL_Log("The engine is updating now.");
+	InputSystem::GetInstance()->Update();
 	ghost->Update(deltaTime);
 }
 
