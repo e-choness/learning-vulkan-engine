@@ -34,26 +34,30 @@ void Ghost::Clean()
 void Ghost::Floating() {
 	m_TextureId = "ghost-floating";
 
-	m_Animation->SetProperties(m_TextureId, 0, 8, 100, SDL_FLIP_HORIZONTAL);
+	m_Animation->SetProperties(m_TextureId, 0, 8, 100, m_Flip);
 	m_RigidBody->UnsetForce();
 }
 
 void Ghost::Moving() {
 	m_TextureId = "ghost-running";
 	
-	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_A)) {		
-		m_Animation->SetProperties(m_TextureId, 0, 6, 50);
-		m_RigidBody->ApplyForceX(-20.0f);
+	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_A)) {
+		m_Flip = SDL_FLIP_NONE;
+		m_Animation->SetProperties(m_TextureId, 0, 6, 50, m_Flip);
+		m_RigidBody->ApplyForceX(20*FORWARD);
 		
 	}
-	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_D)) {		
-		m_Animation->SetProperties(m_TextureId, 0, 6, 50, SDL_FLIP_HORIZONTAL);
-		m_RigidBody->ApplyForceX(20.0f);
+	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_D)) {
+		m_Flip = SDL_FLIP_HORIZONTAL;
+		m_Animation->SetProperties(m_TextureId, 0, 6, 50, m_Flip);
+		m_RigidBody->ApplyForceX(20*BACKWARD);
 	}
 	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_W)) {
-		m_RigidBody->ApplyForceY(-10.0f);
+		m_Animation->SetProperties(m_TextureId, 0, 6, 50, m_Flip);
+		m_RigidBody->ApplyForceY(10*UPWARD);
 	}
 	if (InputSystem::GetInstance()->GetKeyDown(SDL_SCANCODE_S)) {
-		m_RigidBody->ApplyForceY(10.0f);
+		m_Animation->SetProperties(m_TextureId, 0, 6, 50, m_Flip);
+		m_RigidBody->ApplyForceY(10*DOWNWARD);
 	}
 }
