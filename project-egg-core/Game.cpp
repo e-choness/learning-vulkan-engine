@@ -41,15 +41,6 @@ bool Game::init() {
 }
 
 void Game::run() {
-    // Loop while the game is running
-    while (!inputSystem->quitRequested()) {
-        // Handle SDL events through Input System updates
-        inputSystem->update();
-
-        // Quit game if ESC is pressed
-        if (inputSystem->keyPressed(SDLK_ESCAPE)) {
-            break;
-        }
 
         // Clear the renderer
         renderer->Clear();

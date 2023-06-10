@@ -15,6 +15,7 @@ void Ghost::Render()
 void Ghost::Update(float deltaTime)
 {
 	m_RigidBody->Update(deltaTime);
+	m_RigidBody->ApplyForce(Vector2D(7.0f, 1.0f));
 	m_Transfrom->Translate(m_RigidBody->GetPosition());
 	m_Animation->Update(deltaTime);
 }
