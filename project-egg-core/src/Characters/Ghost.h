@@ -6,6 +6,7 @@ class Animation;
 #include "AssetManager.h"
 #include "Animation.h"
 #include "RigidBody.h"
+#include "InputSystem.h"
 
 class Ghost: public Character {
 public:
@@ -14,6 +15,9 @@ public:
 	void Render();
 	void Update(float deltaTime);
 	void Clean();
+
+	void Moving();
+	void Floating();
 
 	Animation* m_Animation;
 	RigidBody* m_RigidBody;

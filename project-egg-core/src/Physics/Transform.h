@@ -9,7 +9,7 @@ class Transform {
 public:
 	Transform(float x = 0.0f, float y = 0.0f);
 	void Log(const char* message);
-	void Translate(Vector2D& v);
+	void Translate(Vector2D v);
 	inline void TranslateX(float x) { X += x; }
 	inline void TranslateY(float y) { Y += y; }
 

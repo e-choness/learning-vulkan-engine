@@ -1,6 +1,6 @@
 #pragma once
 #ifndef INPUTSYSTEM_H
-#define INPUTSYSTEM_H
+#define INPUTSYSTEM_H 
 
 #include <SDL.h>
 #include "Engine.h"
@@ -19,7 +19,7 @@ public:
 	bool GetKeyDown(SDL_Scancode keyCode);
 
 	// Update keyboard and mouse states by listening to poll event.
-	void update();
+	void Update();
 
 	// Return true if any mouse button is pressed.
 	bool mouseButtonPressed(int button);
@@ -38,10 +38,10 @@ private:
 	InputSystem();	
 
 	// Handle any is released.
-	void keyReleased();
+	void KeyReleased();
 
 	// Handle any key is pressed.
-	void keyPressed();
+	void KeyPressed();
 
 	// One and only static instance.
 	static InputSystem* s_Instance;
