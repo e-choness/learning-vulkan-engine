@@ -10,6 +10,7 @@
 #include"EventsHandler.h"
 #include"Vector2D.h"
 #include"AssetManager.h"
+#include"InputSystem.h"
 #include"Transform.h"
 #include"Ghost.h"
 

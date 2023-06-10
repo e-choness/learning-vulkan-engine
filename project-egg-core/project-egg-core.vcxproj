@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)SDL2\lib\x64;$(ProjectDir)SDL2_image\lib\x64;$(ProjectDir)src\Core;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,13 +138,12 @@
     <ClCompile Include="src\Characters\Character.cpp" />
     <ClCompile Include="src\Characters\Ghost.cpp" />
     <ClCompile Include="src\Core\Engine.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Core\EventsHandler.cpp" />
-    <ClCompile Include="src\Core\InputSystem.cpp" />
     <ClCompile Include="src\Core\Renderer.cpp" />
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Graphics\AssetManager.cpp" />
+    <ClCompile Include="src\Inputs\InputSystem.cpp" />
     <ClCompile Include="src\Object\GameObject.cpp" />
     <ClCompile Include="src\Physics\RigidBody.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
@@ -155,13 +154,12 @@
     <ClInclude Include="src\Characters\Character.h" />
     <ClInclude Include="src\Characters\Ghost.h" />
     <ClInclude Include="src\Core\Engine.h" />
-    <ClInclude Include="Game.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="src\Core\EventsHandler.h" />
-    <ClInclude Include="src\Core\InputSystem.h" />
     <ClInclude Include="src\Core\Renderer.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Graphics\AssetManager.h" />
+    <ClInclude Include="src\Inputs\InputSystem.h" />
     <ClInclude Include="src\Object\IObject.h" />
     <ClInclude Include="src\Object\GameObject.h" />
     <ClInclude Include="src\Physics\RigidBody.h" />

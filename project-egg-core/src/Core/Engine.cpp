@@ -1,6 +1,5 @@
 #include "Engine.h"
 
-
 Engine* Engine::s_Instance = nullptr;
 Ghost* ghost = nullptr;
 Properties* ghostProperties = nullptr;
@@ -54,14 +53,19 @@ bool Engine::Clean()
 	}
 
 	if (m_renderer) {
+		SDL_DestroyRenderer(m_renderer->GetInstance());
 		delete m_renderer;
 		SDL_Log("The renderer now has been cleaned.");
 	}
 
 	if (m_window) {
+		SDL_DestroyWindow(m_window->GetInstance());
 		delete m_window;
 		SDL_Log("The window now has been cleaned.");
 	}
+
+	AssetManager::GetInstance()->CleanTexture();
+	SDL_Log("The asset manager now has been cleaned.");
 
 	IMG_Quit();
 	SDL_Quit();
@@ -98,12 +102,9 @@ void Engine::Render()
 }
 
 void Engine::Events()
-{
-	//SDL_Log("The engine handles events here.");
-	
-	// 
-	m_EventsHandler->QuitEvent();
-	m_IsRunning = m_EventsHandler->IsRunning();
+{	
+	// Listening to game events
+	InputSystem::GetInstance()->Listen();
 }
 
 bool Engine::InitCheck() {
