@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)SDL2\lib\x64;$(ProjectDir)SDL2_image\lib\x64;$(ProjectDir)src\Core;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,6 +148,7 @@
     <ClCompile Include="src\Physics\RigidBody.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
     <ClCompile Include="src\Physics\Vector2D.cpp" />
+    <ClCompile Include="src\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Animation\Animation.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Physics\RigidBody.h" />
     <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\Physics\Vector2D.h" />
+    <ClInclude Include="src\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="project-egg-core.rc" />
