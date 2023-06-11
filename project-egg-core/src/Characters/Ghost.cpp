@@ -5,8 +5,6 @@ Ghost::Ghost(Properties* properties) : Character(properties)
 	m_RigidBody = new RigidBody();
 	m_Animation = new Animation();
 	m_RigidBody->UnsetGravity();
-	/*m_TextureId = "ghost-floating";
-	m_Animation->SetProperties(m_TextureId, 0, 8, 80, SDL_FLIP_HORIZONTAL);*/
 }
 
 void Ghost::Render()

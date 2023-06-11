@@ -12,6 +12,7 @@
 #include"AssetManager.h"
 #include"InputSystem.h"
 #include"Transform.h"
+#include"Timer.h"
 #include"Ghost.h"
 
 const int SCREEN_WIDTH = 1280;
@@ -27,7 +28,7 @@ public:
 	void Quit();
 
 
-	void Update(float deltaTime);
+	void Update();
 	void Render();
 	void Events();
 

@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "Timer.h"
 
 int main(int argc, char** argv) {
 
@@ -11,7 +12,6 @@ int main(int argc, char** argv) {
     Engine::GetInstance()->Init();
 
     // Set delta time for udpate
-    float deltaTime = 1.0f;
 
     // Handle game events, updates and render as long as the engine is running
     while (Engine::GetInstance()->isRunning()) {
@@ -19,10 +19,13 @@ int main(int argc, char** argv) {
         Engine::GetInstance()->Events();
 
         // Engine updates objects and entities movements
-        Engine::GetInstance()->Update(deltaTime);
+        Engine::GetInstance()->Update();
 
         // Engine renders updated states
         Engine::GetInstance()->Render();
+
+        // Calculate framerate
+        Timer::GetInstance()->Tick();
 
         // Quit game
         //Engine::GetInstance()->Quit();
