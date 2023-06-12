@@ -71,9 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(ProjectDir)src\Vendor\Tinyxml2;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)SDL2\lib\x64;$(ProjectDir)SDL2_image\lib\x64;$(ProjectDir)src\Core;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;$(ProjectDir)tinyxml2/include</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)src\Vendor\Tinyxml2;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgInstalledDir>
+    </VcpkgInstalledDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,10 +92,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\Vendor\Tinyxml2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(ProjectDir)src\Vendor\Tinyxml2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,11 +159,14 @@
     <ClCompile Include="src\Inputs\InputSystem.cpp" />
     <ClCompile Include="src\Map\GameMap.cpp" />
     <ClCompile Include="src\Map\Layer.cpp" />
+    <ClCompile Include="src\Map\MapParser.cpp" />
+    <ClCompile Include="src\Map\TileLayer.cpp" />
     <ClCompile Include="src\Object\GameObject.cpp" />
     <ClCompile Include="src\Physics\RigidBody.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
     <ClCompile Include="src\Physics\Vector2D.cpp" />
     <ClCompile Include="src\Timer\Timer.cpp" />
+    <ClCompile Include="src\Vendor\Tinyxml2\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Animation\Animation.h" />
@@ -165,12 +181,15 @@
     <ClInclude Include="src\Inputs\InputSystem.h" />
     <ClInclude Include="src\Map\GameMap.h" />
     <ClInclude Include="src\Map\Layer.h" />
+    <ClInclude Include="src\Map\MapParser.h" />
+    <ClInclude Include="src\Map\TileLayer.h" />
     <ClInclude Include="src\Object\IObject.h" />
     <ClInclude Include="src\Object\GameObject.h" />
     <ClInclude Include="src\Physics\RigidBody.h" />
     <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\Physics\Vector2D.h" />
     <ClInclude Include="src\Timer\Timer.h" />
+    <ClInclude Include="src\Vendor\Tinyxml2\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="project-egg-core.rc" />
@@ -180,6 +199,9 @@
     <Image Include="assets\characters\ghost-run.png" />
     <Image Include="assets\characters\ghost-sheet.png" />
     <Image Include="assets\characters\ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\background\night-forest.tmx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

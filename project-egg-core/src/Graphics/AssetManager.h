@@ -19,7 +19,7 @@ public:
 	
 	void CleanTexture();
 
-	void DrawTexture(const char* id, int x, int y, int width, int height, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawTexture(const char* id, float x, float y, int width, int height, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 	void DrawFrame(const char* id, float x, float y, int width, int height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
 

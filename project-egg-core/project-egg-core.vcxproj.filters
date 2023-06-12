@@ -61,6 +61,36 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{defb872a-52dd-41cd-8f72-0c1acc1180af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Map">
+      <UniqueIdentifier>{08f90de3-be52-4a80-8420-21cab7b13964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Inputs">
+      <UniqueIdentifier>{0a71b17a-b5a2-4707-b9dd-563075b3fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Timer">
+      <UniqueIdentifier>{a0ae47db-14db-4bd1-8e2a-67b9297aa9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Inputs">
+      <UniqueIdentifier>{b99fa4e5-0eea-4587-b480-b9706816b73c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Map">
+      <UniqueIdentifier>{4e6923e8-06c9-49d9-911c-b3f1ececc002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Timer">
+      <UniqueIdentifier>{b36b5842-2d5c-4539-8558-6b20fa93041c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Vendor">
+      <UniqueIdentifier>{3796a02d-54b8-4c1f-8024-b738dcdba5de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Vendor\Tinyxml2">
+      <UniqueIdentifier>{1b2ddf00-1b6b-43d1-be98-937a62aafdfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vendor">
+      <UniqueIdentifier>{b97229a3-c710-4e38-9d77-5948a93b42f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vendor\Tinyxml2">
+      <UniqueIdentifier>{760d8e3e-6889-4558-8f66-c31b70d0cf80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -70,12 +100,6 @@
       <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\EventsHandler.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\InputSystem.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Renderer.cpp">
@@ -105,18 +129,36 @@
     <ClCompile Include="src\Animation\Animation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="src\Inputs\InputSystem.cpp">
+      <Filter>Source Files\Inputs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics\RigidBody.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\GameMap.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\TileLayer.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\Layer.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Timer\Timer.cpp">
+      <Filter>Source Files\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\MapParser.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vendor\Tinyxml2\tinyxml2.cpp">
+      <Filter>Source Files\Vendor\Tinyxml2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Engine.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\EventsHandler.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\InputSystem.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Renderer.h">
@@ -152,6 +194,30 @@
     <ClInclude Include="src\Animation\Animation.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="src\Map\Layer.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Map\TileLayer.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Inputs\InputSystem.h">
+      <Filter>Header Files\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\RigidBody.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Timer\Timer.h">
+      <Filter>Header Files\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Map\GameMap.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Map\MapParser.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vendor\Tinyxml2\tinyxml2.h">
+      <Filter>Header Files\Vendor\Tinyxml2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="project-egg-core.rc">
@@ -165,5 +231,16 @@
     <Image Include="assets\characters\ghost-sheet.png">
       <Filter>Resource Files\assets\characters</Filter>
     </Image>
+    <Image Include="assets\characters\ghost-run.png">
+      <Filter>Resource Files\assets\characters</Filter>
+    </Image>
+    <Image Include="assets\characters\ghost-run-sheet.png">
+      <Filter>Resource Files\assets\characters</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\background\night-forest.tmx">
+      <Filter>Resource Files\assets\background</Filter>
+    </None>
   </ItemGroup>
 </Project>

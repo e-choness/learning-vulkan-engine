@@ -37,4 +37,6 @@
 /project-egg-core/SDL2_image
 /project-egg-core/x64
 /project-egg-core/Debug
+/project-egg-core/tinyxml2
+/project-egg-core/src/Vendor
 .vs

@@ -9,7 +9,8 @@ struct Tileset {
 	int FirstId, LastId;
 	int RowCount, ColCount;
 	int TileCount, TileSize;
-	const char* Name, Source;
+	const char* Name;
+	const char* Source;
 };
 
 using TilesetList = std::vector<Tileset>;
@@ -17,7 +18,7 @@ using TileMap = std::vector<std::vector<int>>;
 
 class TileLayer: public Layer{
 public:
-	TileLayer(int tileSize, int rowCount, int colCount, TileMap tileMap, TilesetList tilesetList);
+	TileLayer(int tileSize, int rowCount, int colCount, TileMap tileMap, TilesetList tilesets);
 
 	virtual void Render();
 	virtual void Update();

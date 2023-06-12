@@ -31,7 +31,7 @@ bool Engine::Init()
 
 	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-floating", "assets/characters/ghost-sheet.png");
 	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-running", "assets/characters/ghost-run-sheet.png");
-	ghostProperties = new Properties("ghost-floating", 100, 50, 50, 55);
+	ghostProperties = new Properties("ghost-floating", 100.0f, 50.0f, 50, 55);
 	ghost = new Ghost(ghostProperties);
 	
 	Transform transform;
