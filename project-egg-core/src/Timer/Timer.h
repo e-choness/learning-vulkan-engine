@@ -15,7 +15,7 @@ public:
 		return s_Instance = (s_Instance != nullptr) ? s_Instance : new Timer(); }
 
 private:
-	Timer() {};
+	Timer();
 	static Timer* s_Instance;
 	float m_DeltaTime;
 	float m_LastTime;

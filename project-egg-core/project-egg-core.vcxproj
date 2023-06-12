@@ -144,6 +144,8 @@
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Graphics\AssetManager.cpp" />
     <ClCompile Include="src\Inputs\InputSystem.cpp" />
+    <ClCompile Include="src\Map\GameMap.cpp" />
+    <ClCompile Include="src\Map\Layer.cpp" />
     <ClCompile Include="src\Object\GameObject.cpp" />
     <ClCompile Include="src\Physics\RigidBody.cpp" />
     <ClCompile Include="src\Physics\Transform.cpp" />
@@ -161,6 +163,8 @@
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Graphics\AssetManager.h" />
     <ClInclude Include="src\Inputs\InputSystem.h" />
+    <ClInclude Include="src\Map\GameMap.h" />
+    <ClInclude Include="src\Map\Layer.h" />
     <ClInclude Include="src\Object\IObject.h" />
     <ClInclude Include="src\Object\GameObject.h" />
     <ClInclude Include="src\Physics\RigidBody.h" />
