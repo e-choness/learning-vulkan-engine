@@ -9,6 +9,7 @@
 #include <map>
 #include <sstream>
 #include <string>
+#include <SDL.h>
 
 class MapParser
 {
@@ -18,7 +19,7 @@ public:
 	bool Load();
 	void Clean();
 
-	GameMap* GetMap();
+	GameMap* GetMap(std::string id);
 	bool Parse(std::string id, std::string source);
 
 	Tileset ParseTileset(tinyxml2::XMLElement* xmlTileset);

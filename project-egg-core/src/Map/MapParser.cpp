@@ -20,15 +20,47 @@ void MapParser::Clean()
 {
 }
 
-GameMap* MapParser::GetMap()
+GameMap* MapParser::GetMap(std::string id)
 {
-	return nullptr;
+	return m_MapDictionary[id];
 }
 
 bool MapParser::Parse(std::string id, std::string source)
 {
-	
-	return false;
+	tinyxml2::XMLDocument xml;
+	xml.LoadFile(source.c_str());
+
+	if (xml.Error()) {
+		SDL_LogError(SDL_LOG_PRIORITY_ERROR, "Failed to load the map: %s", source.c_str());
+		return false;
+	}
+
+	tinyxml2::XMLElement* root = xml.RootElement();
+	int rowCount = 0, colCount = 0, tileSize = 0;
+
+	root->QueryIntAttribute("width", &colCount);
+	root->QueryIntAttribute("height", &rowCount);
+	root->QueryIntAttribute("tilewidth", &tileSize);
+
+	// Parse Tilesets.
+	TilesetList tilesets;
+	for (tinyxml2::XMLElement* element = root->FirstChildElement(); element != nullptr; element = element->NextSiblingElement()) {
+		if (element->Value() == std::string("tileset")) {
+			tilesets.push_back(ParseTileset(element));
+		}
+	}
+
+	// Parse game map.
+	GameMap* gameMap = new GameMap();
+	for (tinyxml2::XMLElement* element = root->FirstChildElement(); element != nullptr; element = element->NextSiblingElement()) {
+		if (element->Value() == std::string("layer")) {
+			TileLayer* tilelayer = ParseTileLayer(element, tilesets, tileSize, rowCount, colCount);
+			gameMap->m_MapLayers.push_back(tilelayer);
+		}
+	}
+
+	m_MapDictionary[id] = gameMap;
+	return true;
 }
 
 Tileset MapParser::ParseTileset(tinyxml2::XMLElement* xmlTileset)
@@ -61,19 +93,24 @@ TileLayer* MapParser::ParseTileLayer(tinyxml2::XMLElement* xmlLayer, TilesetList
 		}
 	}
 
+	TileMap tilemap(rowCount, std::vector<int>(colCount, 0));
+
 	if (data != nullptr) {
 		std::string matrix(data->GetText());
 		std::istringstream iss(matrix);
 		std::string id;
 
-		TileMap tilemap(rowCount, std::vector<int>(colCount, 0));
-
 		for (int row = 0; row < rowCount; row++) {
 			for (int col = 0; col < colCount; col++) {
 				std::getline(iss, id, ',');
+				std::stringstream convertor(id);
+				convertor >> tilemap[row][col];
+				if (!iss.good()) {
+					break;
+				}
 			}
 		}
 	}
 	
-	return nullptr;
+	return (new TileLayer(tileSize, rowCount, colCount, tilemap, tilesets));
 }
