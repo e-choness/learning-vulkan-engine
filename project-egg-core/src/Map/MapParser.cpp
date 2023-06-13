@@ -25,7 +25,7 @@ GameMap* MapParser::GetMap()
 	return nullptr;
 }
 
-bool MapParser::Parse(const char* id, const char* source)
+bool MapParser::Parse(std::string id, std::string source)
 {
 	
 	return false;
@@ -53,5 +53,27 @@ Tileset MapParser::ParseTileset(tinyxml2::XMLElement* xmlTileset)
 
 TileLayer* MapParser::ParseTileLayer(tinyxml2::XMLElement* xmlLayer, TilesetList tilesets, int tileSize, int rowCount, int colCount)
 {
+	tinyxml2::XMLElement* data = nullptr;
+	for (tinyxml2::XMLElement* e = xmlLayer->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
+		if (e->Value() == std::string("data")) {
+			data = e;
+			break;
+		}
+	}
+
+	if (data != nullptr) {
+		std::string matrix(data->GetText());
+		std::istringstream iss(matrix);
+		std::string id;
+
+		TileMap tilemap(rowCount, std::vector<int>(colCount, 0));
+
+		for (int row = 0; row < rowCount; row++) {
+			for (int col = 0; col < colCount; col++) {
+				std::getline(iss, id, ',');
+			}
+		}
+	}
+	
 	return nullptr;
 }

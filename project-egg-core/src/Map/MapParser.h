@@ -2,10 +2,13 @@
 #ifndef MAPPARSER_H
 #define MAPPARSER_H
 
-#include <map>
+
 #include "GameMap.h"
 #include "TileLayer.h"
 #include "tinyxml2.h"
+#include <map>
+#include <sstream>
+#include <string>
 
 class MapParser
 {
@@ -16,7 +19,7 @@ public:
 	void Clean();
 
 	GameMap* GetMap();
-	bool Parse(const char* id, const char* source);
+	bool Parse(std::string id, std::string source);
 
 	Tileset ParseTileset(tinyxml2::XMLElement* xmlTileset);
 
@@ -25,7 +28,7 @@ public:
 private:
 	MapParser();
 	static MapParser* s_Instance;
-	std::map<const char*, GameMap*> m_MapDictionary;
+	std::map<std::string, GameMap*> m_MapDictionary;
 	
 };
 

@@ -4,11 +4,12 @@
 
 #include <SDL.h>
 #include <iostream>
+#include <string>
 
 class Window {
 public:
     // Constructor
-    Window(const char* title, int x, int y, int w, int h, Uint32 flags);
+    Window(std::string title, int x, int y, int w, int h, Uint32 flags);
 
     // Destructor
     ~Window();

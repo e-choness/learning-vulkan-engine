@@ -3,6 +3,7 @@
 #define VECTOR2D_H
 
 #include<SDL.h>
+#include<string>
 
 class Vector2D {
 public:
@@ -40,7 +41,7 @@ public:
 		return (X * v2.X + Y * v2.Y);
 	}
 	
-	void LogVector(const char* message);
+	void LogVector(std::string message);
 
 	// The x and y values on the cordinator
 	float X, Y;

@@ -4,13 +4,14 @@
 
 #include"Layer.h"
 #include<vector>
+#include<string>
 
 struct Tileset {
 	int FirstId, LastId;
 	int RowCount, ColCount;
 	int TileCount, TileSize;
-	const char* Name;
-	const char* Source;
+	std::string Name;
+	std::string Source;
 };
 
 using TilesetList = std::vector<Tileset>;

@@ -40,3 +40,5 @@
 /project-egg-core/tinyxml2
 /project-egg-core/src/Vendor
 .vs
+.idea
+vcpkg
