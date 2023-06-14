@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(ProjectDir)src\Vendor\Tinyxml2;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)SDL2\include;$(ProjectDir)SDL2_image\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(ProjectDir)src\Vendor\Tinyxml2;$(ProjectDir)src\Map;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(ProjectDir)SDL2\lib\x64;$(ProjectDir)SDL2_image\lib\x64;$(ProjectDir)src\Core;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(ProjectDir)src\Vendor\Tinyxml2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)SDL2_image\include;$(ProjectDir)SDL2\include;$(ProjectDir)src\Core;$(ProjectDir)src\Graphics;$(ProjectDir)src\Physics;$(ProjectDir)src\Object;$(ProjectDir)src\Characters;$(ProjectDir)src\Animation;$(ProjectDir)src\Inputs;$(ProjectDir)src\Timer;$(ProjectDir)src\Vendor\Tinyxml2;$(ProjectDir)src\Map;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -13,11 +13,16 @@ MapParser* MapParser::GetInstance()
 
 bool MapParser::Load()
 {
-	return Parse("level1", "assets/background/night-forest.tmx");
+	return Parse("MAP", "assets/background/night-forest.tmx");
 }
 
 void MapParser::Clean()
 {
+	std::map<std::string, GameMap*>::iterator it;
+	for (it = m_MapDictionary.begin(); it != m_MapDictionary.end(); it++) {
+		it->second = nullptr;
+	}
+	m_MapDictionary.clear();
 }
 
 GameMap* MapParser::GetMap(std::string id)
@@ -31,7 +36,7 @@ bool MapParser::Parse(std::string id, std::string source)
 	xml.LoadFile(source.c_str());
 
 	if (xml.Error()) {
-		SDL_LogError(SDL_LOG_PRIORITY_ERROR, "Failed to load the map: %s", source.c_str());
+		SDL_Log("Failed to load texture: %s, %s", source.c_str(), SDL_GetError());
 		return false;
 	}
 
@@ -43,7 +48,7 @@ bool MapParser::Parse(std::string id, std::string source)
 	root->QueryIntAttribute("tilewidth", &tileSize);
 
 	// Parse Tilesets.
-	TilesetList tilesets;
+	std::vector<Tileset> tilesets;
 	for (tinyxml2::XMLElement* element = root->FirstChildElement(); element != nullptr; element = element->NextSiblingElement()) {
 		if (element->Value() == std::string("tileset")) {
 			tilesets.push_back(ParseTileset(element));
@@ -83,7 +88,7 @@ Tileset MapParser::ParseTileset(tinyxml2::XMLElement* xmlTileset)
 	return tileset;
 }
 
-TileLayer* MapParser::ParseTileLayer(tinyxml2::XMLElement* xmlLayer, TilesetList tilesets, int tileSize, int rowCount, int colCount)
+TileLayer* MapParser::ParseTileLayer(tinyxml2::XMLElement* xmlLayer, std::vector<Tileset> tilesets, int tileSize, int rowCount, int colCount)
 {
 	tinyxml2::XMLElement* data = nullptr;
 	for (tinyxml2::XMLElement* e = xmlLayer->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
@@ -93,7 +98,7 @@ TileLayer* MapParser::ParseTileLayer(tinyxml2::XMLElement* xmlLayer, TilesetList
 		}
 	}
 
-	TileMap tilemap(rowCount, std::vector<int>(colCount, 0));
+	std::vector<std::vector<int>> tilemap(rowCount, std::vector<int>(colCount, 0));
 
 	if (data != nullptr) {
 		std::string matrix(data->GetText());

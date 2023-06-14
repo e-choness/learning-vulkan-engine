@@ -4,7 +4,7 @@ Engine* Engine::s_Instance = nullptr;
 Ghost* ghost = nullptr;
 Properties* ghostProperties = nullptr;
 
-Engine::Engine(): m_window(nullptr), m_renderer(nullptr), m_IsRunning(false), m_EventsHandler(nullptr) {
+Engine::Engine(): m_window(nullptr), m_renderer(nullptr), m_IsRunning(false), m_EventsHandler(nullptr), m_LevelMap(nullptr) {
 	SDL_Log("The engine now has the one and only instance.");
 }
 
@@ -18,6 +18,9 @@ bool Engine::Init()
 	// Check
 	m_IsRunning = InitCheck();
 	if (!m_IsRunning) { return m_IsRunning; }
+
+	// Set window flags
+	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 	
 	// Initialize display window
 	m_window = new Window("Egg Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -28,7 +31,13 @@ bool Engine::Init()
 
 	m_EventsHandler = new EventsHandler();
 
+	if (MapParser::GetInstance()->Load()) {
+		SDL_Log("Failed to load the map. Error: %s", SDL_GetError());
+	}
 
+	m_LevelMap = MapParser::GetInstance()->GetMap("MAP");
+
+	// Load character textures
 	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-floating", "assets/characters/ghost-sheet.png");
 	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-running", "assets/characters/ghost-run-sheet.png");
 	ghostProperties = new Properties("ghost-floating", 100.0f, 50.0f, 50, 55);
@@ -90,7 +99,7 @@ void Engine::Quit()
 void Engine::Update()
 {
 	float deltaTime = Timer::GetInstance()->GetDeltaTime();
-	//InputSystem::GetInstance()->Update();
+	m_LevelMap->Update();
 	ghost->Update(deltaTime);
 }
 
@@ -99,6 +108,7 @@ void Engine::Render()
 	//SDL_Log("The engine is renderering images.");
 	SDL_SetRenderDrawColor(m_renderer->GetInstance(), 124, 218, 254, 255);
 	SDL_RenderClear(m_renderer->GetInstance());
+	m_LevelMap->Render();
 	ghost->Render();
 	SDL_RenderPresent(m_renderer->GetInstance());
 }

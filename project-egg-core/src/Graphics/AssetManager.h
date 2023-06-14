@@ -24,6 +24,8 @@ public:
 
 	void DrawFrame(std::string id, float x, float y, int width, int height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
+	void DrawTile(std::string tilesetId, int tileSize, float x, float y, int width, int height, int row, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
 private:
 	AssetManager();
 	static AssetManager* s_Instance;

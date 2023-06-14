@@ -14,6 +14,8 @@
 #include"Transform.h"
 #include"Timer.h"
 #include"Ghost.h"
+#include"GameMap.h"
+#include"MapParser.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -59,6 +61,9 @@ private:
 
 	// Events Handler
 	EventsHandler* m_EventsHandler;
+
+	// Game Map
+	GameMap* m_LevelMap;
 };
 
 #endif // ENGINE_H

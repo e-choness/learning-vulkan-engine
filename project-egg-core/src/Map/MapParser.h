@@ -4,12 +4,14 @@
 
 
 #include "GameMap.h"
-#include "TileLayer.h"
 #include "tinyxml2.h"
 #include <map>
 #include <sstream>
 #include <string>
+#include <vector>
 #include <SDL.h>
+
+class TileLayer;
 
 class MapParser
 {
@@ -24,7 +26,7 @@ public:
 
 	Tileset ParseTileset(tinyxml2::XMLElement* xmlTileset);
 
-	TileLayer* ParseTileLayer(tinyxml2::XMLElement* xmlLayer, TilesetList tilesets, int tileSize, int rowCount, int colCount);
+	TileLayer* ParseTileLayer(tinyxml2::XMLElement* xmlLayer, std::vector<Tileset> tilesets, int tileSize, int rowCount, int colCount);
 
 private:
 	MapParser();
@@ -33,5 +35,5 @@ private:
 	
 };
 
-
+#include "TileLayer.h"
 #endif // !MAPPARSER_H
