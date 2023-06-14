@@ -1,6 +1,4 @@
 #pragma once
-#ifndef RENDERER_H
-#define RENDERER_H
 
 #include <SDL.h>
 
@@ -36,5 +34,3 @@ private:
     // A flag indicates the renderer is running
     bool m_IsRunning;
 };
-
-#endif // RENDERER_H

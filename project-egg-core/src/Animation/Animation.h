@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ANIMATION_H
-#define ANIMATION_H
 
 #include <SDL.h>
 #include <string>
@@ -22,5 +20,3 @@ public:
 	std::string m_TextureId;
 	SDL_RendererFlip m_Flip;
 };
-
-#endif // !ANIMATION_H

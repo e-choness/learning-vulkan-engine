@@ -19,7 +19,7 @@ void TileLayer::Render()
 			if (tileId == 0)
 				continue;
 			else {
-				int index;
+				int index = 1;
 				// Tilesets in lower layers, their starting id is not 0, and it needs calculation here.
 				if (m_Tilesets.size() > 1) {
 					// Calculating starting tile id of current tileset
@@ -42,7 +42,7 @@ void TileLayer::Render()
 					tileCol = tileset.ColCount - 1;
 				}
 
-				AssetManager::GetInstance()->DrawTile(tileset.Name, tileset.TileSize,static_cast<float> (j), static_cast<float> (i), (j * tileset.TileSize), (i * tileset.TileSize), tileRow, SDL_FLIP_NONE );
+				//XXX AssetManager::GetInstance()->DrawTile(tileset.Name, tileset.TileSize,static_cast<float> (j), static_cast<float> (i), (j * tileset.TileSize), (i * tileset.TileSize), tileRow, SDL_FLIP_NONE );
 			}
 		}
 	}

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef RIGIDBODY_H
-#define RIGIDBODY_H
 
 #define GRAVITY 1.0f
 #define UNI_MASS 9.0f
@@ -48,5 +46,3 @@ private:
 	Vector2D m_Velocity;
 	Vector2D m_Accelaration;
 };
-
-#endif // !RIGIDBODY_H

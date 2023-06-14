@@ -1,12 +1,10 @@
 #pragma once
-#ifndef ASSETMANAGER_H
-#define ASSETMANAGER_H
 
-#include<SDL.h>
-#include<SDL_image.h>
-#include<map>
-#include<string>
-#include"Engine.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <map>
+#include <string>
+#include "Engine.h"
 
 class AssetManager {
 public:
@@ -32,5 +30,3 @@ private:
 
 	std::map<std::string, SDL_Texture*> m_TextureMap;
 };
-
-#endif // ASSETMANAGER_H

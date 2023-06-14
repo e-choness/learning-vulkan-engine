@@ -1,17 +1,14 @@
 #pragma once
-#ifndef MAPPARSER_H
-#define MAPPARSER_H
-
 
 #include "GameMap.h"
-#include "tinyxml2.h"
+#include <tinyxml2.h>
 #include <map>
 #include <sstream>
 #include <string>
-#include <vector>
 #include <SDL.h>
 
 class TileLayer;
+struct Tileset;
 
 class MapParser
 {
@@ -32,8 +29,4 @@ private:
 	MapParser();
 	static MapParser* s_Instance;
 	std::map<std::string, GameMap*> m_MapDictionary;
-	
 };
-
-#include "TileLayer.h"
-#endif // !MAPPARSER_H

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef GAMEMAP_H
-#define GAMEMAP_H
 
 #include <vector>
 #include "Layer.h"
@@ -16,5 +14,3 @@ private:
 	friend class MapParser;
 	std::vector<Layer*> m_MapLayers;
 };
-
-#endif // !GAMEMAP_H

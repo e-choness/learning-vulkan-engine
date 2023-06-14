@@ -1,6 +1,4 @@
 #pragma once
-#ifndef WINDOW_H
-#define WINDOW_H
 
 #include <SDL.h>
 #include <iostream>
@@ -26,5 +24,3 @@ private:
 
     bool m_IsRunning;
 };
-
-#endif // WINDOW_H

@@ -1,4 +1,5 @@
 #include "MapParser.h"
+#include "TileLayer.h"
 
 MapParser* MapParser::s_Instance = nullptr;
 
@@ -98,7 +99,7 @@ TileLayer* MapParser::ParseTileLayer(tinyxml2::XMLElement* xmlLayer, std::vector
 		}
 	}
 
-	std::vector<std::vector<int>> tilemap(rowCount, std::vector<int>(colCount, 0));
+	typename std::vector<std::vector<int>> tilemap(rowCount, std::vector<int>(colCount, 0));
 
 	if (data != nullptr) {
 		std::string matrix(data->GetText());

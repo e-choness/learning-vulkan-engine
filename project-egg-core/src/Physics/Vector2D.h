@@ -1,6 +1,4 @@
 #pragma once
-#ifndef VECTOR2D_H
-#define VECTOR2D_H
 
 #include<SDL.h>
 #include<string>
@@ -46,5 +44,3 @@ public:
 	// The x and y values on the cordinator
 	float X, Y;
 };
-
-#endif // VECTOR2D_H

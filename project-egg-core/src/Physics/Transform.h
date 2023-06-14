@@ -1,6 +1,4 @@
 #pragma once
-#ifndef TRANSFORM_H
-#define TRANSFORM_H
 
 #include<SDL.h>
 #include<string>
@@ -16,5 +14,3 @@ public:
 
 	float X, Y;
 };
-
-#endif // TRANSFORM_H

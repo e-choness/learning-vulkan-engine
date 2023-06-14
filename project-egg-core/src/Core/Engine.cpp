@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include"AssetManager.h"
 
 Engine* Engine::s_Instance = nullptr;
 Ghost* ghost = nullptr;

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef TILELAYER_H
-#define TILELAYER_H
 
 #include "AssetManager.h"
 #include "Layer.h"
@@ -13,8 +11,6 @@ struct Tileset {
 	int TileCount, TileSize;
 	std::string Name;
 	std::string Source;
-
-	Tileset() = default;
 };
 
 class TileLayer: public Layer{
@@ -27,10 +23,8 @@ public:
 
 private:
 	int m_TileSize;
-	int m_RowCount, m_ColCount;
+	unsigned int m_RowCount, m_ColCount;
 
 	std::vector<std::vector<int>> m_TileMap;
 	std::vector<Tileset> m_Tilesets;
 };
-
-#endif // !TILELAYER_H

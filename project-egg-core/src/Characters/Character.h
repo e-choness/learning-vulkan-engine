@@ -1,6 +1,4 @@
 #pragma once
-#ifndef CHARACTER_H
-#define CHARACTER_H
 
 #include"GameObject.h"
 #include<string>
@@ -16,5 +14,3 @@ public:
 protected:
 	std::string m_Name;
 };
-
-#endif // !CHARACTER_H

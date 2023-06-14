@@ -1,6 +1,4 @@
 ﻿#pragma once
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
 
 #include"IObject.h"
 #include"Transform.h"
@@ -33,5 +31,3 @@ protected:
 	std::string m_TextureId;
 	SDL_RendererFlip m_Flip;
 };
-
-#endif // !GAMEOBJECT_H

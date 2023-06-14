@@ -1,6 +1,4 @@
 #pragma once
-#ifndef TIMER_H
-#define TIMER_H
 
 const int TARGET_FPS = 60;
 const float TARGET_FRAMERATE = 1.5f;
@@ -20,5 +18,3 @@ private:
 	float m_DeltaTime;
 	float m_LastTime;
 };
-
-#endif // !TIMER_H
