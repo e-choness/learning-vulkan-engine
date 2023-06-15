@@ -44,6 +44,7 @@
 .idea
 .i
 vcpkg
+ThirdParty
 
 ### CMake ###
 CMakeLists.txt.user

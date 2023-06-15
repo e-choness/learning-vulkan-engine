@@ -4,7 +4,7 @@
 #include <SDL_image.h>
 #include <map>
 #include <string>
-#include "Engine.h"
+#include "Core/Engine.h"
 
 class AssetManager {
 public:
@@ -18,11 +18,11 @@ public:
 	
 	void CleanTexture();
 
-	void DrawTexture(std::string id, float x, float y, int width, int height, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawTexture(std::string id, float x, float y, float width, float height, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-	void DrawFrame(std::string id, float x, float y, int width, int height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawFrame(std::string id, float x, float y, float width, float height, int row, int frame, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-	void DrawTile(std::string tilesetId, int tileSize, float x, float y, int width, int height, int row, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void DrawTile(std::string tilesetId, int tileSize, float x, float y, float width, float height, int row, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 private:
 	AssetManager();

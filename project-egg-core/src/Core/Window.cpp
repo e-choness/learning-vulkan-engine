@@ -1,10 +1,10 @@
 #include "Window.h"
 
-Window::Window(std::string title, int x, int y, int w, int h, Uint32 flags)
+Window::Window(std::string title, int w, int h, Uint32 flags)
     : s_window(nullptr), m_IsRunning(true)
 {
     // Create a window with the specified properties
-    s_window = SDL_CreateWindow(title.c_str(), x, y, w, h, flags);
+    s_window = SDL_CreateWindow(title.c_str(), w, h, flags);
     if (!s_window) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create window: %s", SDL_GetError());
         m_IsRunning = false;

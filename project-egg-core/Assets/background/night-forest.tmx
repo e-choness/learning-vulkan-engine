@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.1" class="NightForest" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
  <tileset firstgid="1" name="tileset4x" tilewidth="16" tileheight="16" tilecount="3168" columns="72">
-  <image source="../../../../project-egg-map/assets/stringstar fields/tileset4x.png" width="1152" height="704"/>
+  <image source="tileset4x.png" width="1152" height="704"/>
  </tileset>
  <layer id="1" name="Tile Layer 1" width="100" height="60">
   <data encoding="csv">

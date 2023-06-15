@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 #include <string>
-#include "AssetManager.h"
+#include "Graphics/AssetManager.h"
 
 class Animation {
 public:

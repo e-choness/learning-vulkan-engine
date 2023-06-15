@@ -8,7 +8,7 @@ const float TARGET_FRAMERATE = 1.5f;
 class Timer {
 public:
 	void Tick();
-	inline float GetDeltaTime() { return m_DeltaTime;}
+	float GetDeltaTime() { return m_DeltaTime;}
 	static Timer* GetInstance() { 
 		return s_Instance = (s_Instance != nullptr) ? s_Instance : new Timer(); }
 

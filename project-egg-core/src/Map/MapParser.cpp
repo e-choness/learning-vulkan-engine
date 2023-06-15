@@ -14,7 +14,7 @@ MapParser* MapParser::GetInstance()
 
 bool MapParser::Load()
 {
-	return Parse("MAP", "assets/background/night-forest.tmx");
+	return Parse("MAP", "../night-forest.tmx");
 }
 
 void MapParser::Clean()

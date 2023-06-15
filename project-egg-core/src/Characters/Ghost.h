@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Character.h"
-#include "AssetManager.h"
-#include "Animation.h"
-#include "RigidBody.h"
-#include "InputSystem.h"
+#include "Graphics/AssetManager.h"
+#include "Animation/Animation.h"
+#include "Physics/RigidBody.h"
+#include "Inputs/InputSystem.h"
 
 class Animation;
 

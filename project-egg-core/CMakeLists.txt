@@ -4,3 +4,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 # Dependencies from ThirdParty libraries
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)

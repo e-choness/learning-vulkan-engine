@@ -12,9 +12,9 @@ void InputSystem::Listen()
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
-		case SDL_QUIT: Engine::GetInstance()->Quit(); break;
-		case SDL_KEYDOWN: KeyPressed(); break;
-		case SDL_KEYUP: KeyReleased(); break;
+		case SDL_EVENT_QUIT: Engine::GetInstance()->Quit(); break;
+		case SDL_EVENT_KEY_DOWN: KeyPressed(); break;
+		case SDL_EVENT_KEY_UP: KeyReleased(); break;
 		default:
 			break;
 		}

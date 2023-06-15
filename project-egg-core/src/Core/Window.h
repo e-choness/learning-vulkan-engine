@@ -7,7 +7,7 @@
 class Window {
 public:
     // Constructor
-    Window(std::string title, int x, int y, int w, int h, Uint32 flags);
+    Window(std::string title, int w, int h, Uint32 flags);
 
     // Destructor
     ~Window();

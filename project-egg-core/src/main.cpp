@@ -1,17 +1,17 @@
-#include "Engine.h"
-#include "Timer.h"
+#include "Core/Engine.h"
+#include "Timer/Timer.h"
 
 int main(int argc, char** argv) {
 
     // Check if SDL can initialize all components
     if (!SDL_Init(SDL_INIT_EVERYTHING)) {
-        SDL_Log("SDL library is running righty.");
+        SDL_Log("SDL library is running.");
     }
 
     // Initialize game engine instance and members
     Engine::GetInstance()->Init();
 
-    // Set delta time for udpate
+    // Set delta time for update
 
     // Handle game events, updates and render as long as the engine is running
     while (Engine::GetInstance()->isRunning()) {

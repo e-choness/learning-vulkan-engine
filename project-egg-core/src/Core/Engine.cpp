@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include"AssetManager.h"
+#include "Graphics/AssetManager.h"
 
 Engine* Engine::s_Instance = nullptr;
 Ghost* ghost = nullptr;
@@ -21,13 +21,13 @@ bool Engine::Init()
 	if (!m_IsRunning) { return m_IsRunning; }
 
 	// Set window flags
-	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+	auto window_flags = (SDL_WindowFlags)(SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY);
 	
 	// Initialize display window
-	m_window = new Window("Egg Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	m_window = new Window("Egg Engine", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_VULKAN);
 
 	// Initialize renderer in the window
-	m_renderer = new Renderer(m_window->GetInstance(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	m_renderer = new Renderer(m_window->GetInstance(), SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	m_IsRunning = m_window->IsRunning() && m_renderer->IsRunning();
 
 	m_EventsHandler = new EventsHandler();
@@ -39,13 +39,13 @@ bool Engine::Init()
 	m_LevelMap = MapParser::GetInstance()->GetMap("MAP");
 
 	// Load character textures
-	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-floating", "assets/characters/ghost-sheet.png");
-	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-running", "assets/characters/ghost-run-sheet.png");
+	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-floating", "../ghost-sheet.png");
+	m_IsRunning = AssetManager::GetInstance()->LoadTexture("ghost-running", "../ghost-run-sheet.png");
 	ghostProperties = new Properties("ghost-floating", 100.0f, 50.0f, 50, 55);
 	ghost = new Ghost(ghostProperties);
 	
 	Transform transform;
-	transform.Log("This tranformation is: ");
+	transform.Log("This transformation is: ");
 	
 	return m_IsRunning;
 }
@@ -106,7 +106,7 @@ void Engine::Update()
 
 void Engine::Render()
 {
-	//SDL_Log("The engine is renderering images.");
+	//SDL_Log("The engine is rendering images.");
 	SDL_SetRenderDrawColor(m_renderer->GetInstance(), 124, 218, 254, 255);
 	SDL_RenderClear(m_renderer->GetInstance());
 	m_LevelMap->Render();
@@ -122,7 +122,7 @@ void Engine::Events()
 
 bool Engine::InitCheck() {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0 && IMG_Init(IMG_INIT_JPG || IMG_INIT_PNG) != 0) {
-		SDL_Log("Failed to initilize SDL: %s", SDL_GetError());
+		SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
 		return false;
 	}
 

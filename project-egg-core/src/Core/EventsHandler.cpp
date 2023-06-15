@@ -9,7 +9,7 @@ void EventsHandler::QuitEvent()
 {
 	SDL_PollEvent(m_Event);
 	switch (m_Event->type) {
-	case SDL_QUIT:
+	case SDL_EVENT_QUIT:
 		m_IsRunning = false;
 		break;
 	default:

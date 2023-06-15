@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include"IObject.h"
-#include"Transform.h"
+#include"Physics/Transform.h"
 #include"SDL.h"
 #include<string>
 

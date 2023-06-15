@@ -6,13 +6,18 @@
 #include "Window.h"
 #include "Renderer.h"
 #include "EventsHandler.h"
-#include "Vector2D.h"
-#include "InputSystem.h"
-#include "Transform.h"
-#include "Timer.h"
-#include "Ghost.h"
-#include "GameMap.h"
-#include "MapParser.h"
+
+#include "Physics/Vector2D.h"
+#include "Physics/Transform.h"
+
+#include "Inputs/InputSystem.h"
+
+#include "Timer/Timer.h"
+
+#include "Characters/Ghost.h"
+
+#include "Map/GameMap.h"
+#include "Map/MapParser.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;

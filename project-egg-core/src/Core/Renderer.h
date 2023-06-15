@@ -1,11 +1,12 @@
 #pragma once
 
 #include <SDL.h>
+#include <string>
 
 class Renderer {
 public:
     // Constructor
-    Renderer(SDL_Window* window, int index, Uint32 flags);
+    Renderer(SDL_Window* window, Uint32 flags);
 
     // Destructor
     ~Renderer();
@@ -20,7 +21,7 @@ public:
     void Render();
 
     // Fill a rectangular with color
-    void fillRect(SDL_Rect* rect);
+    void fillRect(SDL_FRect* rect);
 
     void drawCircle(int x, int y, int radius);
 
