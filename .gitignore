@@ -33,17 +33,7 @@
 *.app
 
 #Specific folders
-/project-egg-core/SDL2
-/project-egg-core/SDL2_image
-/project-egg-core/x64
-/project-egg-core/Debug
-/project-egg-core/tinyxml2
-/project-egg-core/src/Vendor
-/project-egg-core/cmake-build-debug
-.vs
 .idea
-.i
-vcpkg
 ThirdParty
 
 ### CMake ###
@@ -57,6 +47,7 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+cmake-build-debug
 _deps
 
 ### CMake Patch ###
