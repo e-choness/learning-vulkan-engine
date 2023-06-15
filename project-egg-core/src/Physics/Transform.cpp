@@ -4,9 +4,9 @@ Transform::Transform(float x, float y):X(x),Y(y)
 {
 }
 
-void Transform::Log(const char* message)
+void Transform::Log(std::string message)
 {
-	SDL_Log("%s (X, Y) = (%f, %f)\n", message, X, Y);
+	SDL_Log("%s (X, Y) = (%f, %f)\n", message.c_str(), X, Y);
 }
 
 void Transform::Translate(Vector2D v)

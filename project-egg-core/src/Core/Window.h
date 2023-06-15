@@ -1,14 +1,13 @@
 #pragma once
-#ifndef WINDOW_H
-#define WINDOW_H
 
 #include <SDL.h>
 #include <iostream>
+#include <string>
 
 class Window {
 public:
     // Constructor
-    Window(const char* title, int x, int y, int w, int h, Uint32 flags);
+    Window(std::string title, int w, int h, Uint32 flags);
 
     // Destructor
     ~Window();
@@ -25,5 +24,3 @@ private:
 
     bool m_IsRunning;
 };
-
-#endif // WINDOW_H

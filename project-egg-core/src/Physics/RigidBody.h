@@ -1,6 +1,4 @@
 #pragma once
-#ifndef RIGIDBODY_H
-#define RIGIDBODY_H
 
 #define GRAVITY 1.0f
 #define UNI_MASS 9.0f
@@ -16,24 +14,24 @@ class RigidBody {
 public:
 	RigidBody();
 
-	inline void SetForce(float mass) { m_Mass = mass; }
-	inline void SetGravity(float gravity) { m_Gravity = gravity; }
-	inline void UnsetGravity() { m_Gravity = 0.0f; }
-	
-	inline void ApplyForce(Vector2D force) { m_Force = force; }
-	inline void ApplyForceX(float x) { m_Force.X = x; }
-	inline void ApplyForceY(float y) { m_Force.Y = y; }
-	inline void UnsetForce() { m_Force = Vector2D(0.0f, 0.0f); }
+    void SetForce(float mass) { m_Mass = mass; }
+    void SetGravity(float gravity) { m_Gravity = gravity; }
+    void UnsetGravity() { m_Gravity = 0.0f; }
 
-	inline void ApplyFriction(Vector2D friction) { m_Friction = friction; }
-	inline void UnsetFriction() { m_Friction = Vector2D(0.0f, 0.0f); }
+    void ApplyForce(Vector2D force) { m_Force = force; }
+    void ApplyForceX(float x) { m_Force.X = x; }
+    void ApplyForceY(float y) { m_Force.Y = y; }
+    void UnsetForce() { m_Force = Vector2D(0.0f, 0.0f); }
 
-	inline float GetMass() { return m_Mass; }
-	inline Vector2D GetPosition() { return m_Position; }
-	inline Vector2D GetVelocity() { return m_Velocity; }
-	inline Vector2D GetAccelaration() { return m_Accelaration; }
-	inline Vector2D GetForce() { return m_Force; }
-	inline Vector2D GetGravity() { return m_Gravity; }
+    void ApplyFriction(Vector2D friction) { m_Friction = friction; }
+    void UnsetFriction() { m_Friction = Vector2D(0.0f, 0.0f); }
+
+    float GetMass() { return m_Mass; }
+    Vector2D GetPosition() { return m_Position; }
+    Vector2D GetVelocity() { return m_Velocity; }
+    Vector2D GetAccelaration() { return m_Accelaration; }
+    Vector2D GetForce() { return m_Force; }
+    Vector2D GetGravity() { return m_Gravity; }
 
 	void Update(float deltaTime);
 	
@@ -48,5 +46,3 @@ private:
 	Vector2D m_Velocity;
 	Vector2D m_Accelaration;
 };
-
-#endif // !RIGIDBODY_H

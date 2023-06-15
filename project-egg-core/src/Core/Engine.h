@@ -1,23 +1,28 @@
 #pragma once
-#ifndef ENGINE_H
-#define ENGINE_H
 
-#include<SDL.h>
-#include<SDL_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
 
-#include"Window.h"
-#include"Renderer.h"
-#include"EventsHandler.h"
-#include"Vector2D.h"
-#include"AssetManager.h"
-#include"InputSystem.h"
-#include"Transform.h"
-#include"Timer.h"
-#include"Ghost.h"
+#include "Window.h"
+#include "Renderer.h"
+#include "EventsHandler.h"
+
+#include "Physics/Vector2D.h"
+#include "Physics/Transform.h"
+
+#include "Inputs/InputSystem.h"
+
+#include "Timer/Timer.h"
+
+#include "Characters/Ghost.h"
+
+#include "Map/GameMap.h"
+#include "Map/MapParser.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
+class AssetManager;
 class Engine
 {
 public:	
@@ -59,7 +64,8 @@ private:
 
 	// Events Handler
 	EventsHandler* m_EventsHandler;
-};
 
-#endif // ENGINE_H
+	// Game Map
+	GameMap* m_LevelMap;
+};
 

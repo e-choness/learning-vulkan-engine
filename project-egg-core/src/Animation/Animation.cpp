@@ -15,7 +15,7 @@ void Animation::Render(float x, float y, int spriteWidth, int spriteHeight)
 	AssetManager::GetInstance()->DrawFrame(m_TextureId, x, y, spriteWidth, spriteHeight, m_SpriteRow, m_SpriteFrame, m_Flip);
 }
 
-void Animation::SetProperties(const char* textureId, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip)
+void Animation::SetProperties(std::string textureId, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip)
 {
 	m_TextureId = textureId;
 	m_SpriteRow = spriteRow;

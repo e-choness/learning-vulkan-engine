@@ -1,8 +1,7 @@
 #pragma once
-#ifndef CHARACTER_H
-#define CHARACTER_H
 
-#include"GameObject.h"
+#include"Object/GameObject.h"
+#include<string>
 
 class Character : public GameObject{
 public:
@@ -13,7 +12,5 @@ public:
 	virtual void Clean() = 0;
 
 protected:
-	const char* m_Name;
+	std::string m_Name;
 };
-
-#endif // !CHARACTER_H

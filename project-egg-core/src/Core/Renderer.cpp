@@ -1,12 +1,12 @@
 #include "Renderer.h"
-#include "AssetManager.h"
+#include "Graphics/AssetManager.h"
 #include <iostream>
 
-Renderer::Renderer(SDL_Window* window, int index, Uint32 flags)
+Renderer::Renderer(SDL_Window* window, Uint32 flags)
     : s_Renderer(nullptr), m_IsRunning(true)
 {
     // Create a renderer for the specified window
-    s_Renderer = SDL_CreateRenderer(window, index, flags);
+    s_Renderer = SDL_CreateRenderer(window, nullptr, flags);
     if (!s_Renderer) {
         SDL_Log("Renderer could not be created! Error: %s", SDL_GetError());
         m_IsRunning = false;
@@ -27,7 +27,7 @@ void Renderer::Render() {
     
 }
 
-void Renderer::fillRect(SDL_Rect* rect)
+void Renderer::fillRect(SDL_FRect* rect)
 {
     SDL_RenderFillRect(s_Renderer, rect);
 }

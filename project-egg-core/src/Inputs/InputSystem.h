@@ -1,9 +1,7 @@
 #pragma once
-#ifndef INPUTSYSTEM_H
-#define INPUTSYSTEM_H 
 
 #include <SDL.h>
-#include "Engine.h"
+#include "Core/Engine.h"
 
 class InputSystem
 {
@@ -58,6 +56,3 @@ private:
 	// Mouse position on Y coordinate
 	int mouseY;
 };
-
-#endif // !INPUTSYSTEM_H
-

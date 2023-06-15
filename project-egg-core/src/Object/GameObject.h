@@ -1,20 +1,19 @@
 ﻿#pragma once
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
 
 #include"IObject.h"
-#include"Transform.h"
+#include"Physics/Transform.h"
 #include"SDL.h"
+#include<string>
 
 struct Properties {
 public:
-	Properties(const char* textureId, float x, float y, int width, int height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
+	Properties(std::string textureId, float x, float y, int width, int height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
 		X(x), Y(y), Width(width), Height(height), TextureId(textureId), Flip(flip) {
 	}
 public:
 	float X, Y;
 	int Width, Height;
-	const char* TextureId;
+	std::string TextureId;
 	SDL_RendererFlip Flip;
 };
 
@@ -29,8 +28,6 @@ public:
 protected:
 	Transform* m_Transfrom;
 	int m_Width, m_Height;
-	const char* m_TextureId;
+	std::string m_TextureId;
 	SDL_RendererFlip m_Flip;
 };
-
-#endif // !GAMEOBJECT_H

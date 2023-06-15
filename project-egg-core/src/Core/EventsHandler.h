@@ -1,6 +1,4 @@
 #pragma once
-#ifndef EVENTSHANDLER_H
-#define EVENTSHANDLER_H
 
 #include<SDL.h>
 
@@ -19,6 +17,3 @@ private:
 	SDL_Event* m_Event;
 	bool m_IsRunning;
 };
-
-#endif // EVENTSHANDLER_H
-
