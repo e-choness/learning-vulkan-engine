@@ -1,6 +1,6 @@
 #include "Window.h"
 
-Window::Window(std::string title, int w, int h, Uint32 flags)
+Window::Window(const std::string& title, int w, int h, Uint32 flags)
     : s_window(nullptr), m_IsRunning(true)
 {
     // Create a window with the specified properties

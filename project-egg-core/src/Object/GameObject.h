@@ -1,33 +1,34 @@
 ﻿#pragma once
 
-#include"IObject.h"
-#include"Physics/Transform.h"
-#include"SDL.h"
-#include<string>
+#include "IObject.h"
+#include "Physics/Transform.h"
+#include "SDL.h"
+#include <string>
+#include <utility>
 
 struct Properties {
 public:
-	Properties(std::string textureId, float x, float y, int width, int height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
-		X(x), Y(y), Width(width), Height(height), TextureId(textureId), Flip(flip) {
+	Properties(std::string textureId, float x, float y, float width, float height,  SDL_RendererFlip flip = SDL_FLIP_NONE):
+		X(x), Y(y), Width(width), Height(height), TextureId(std::move(textureId)), Flip(flip) {
 	}
 public:
 	float X, Y;
-	int Width, Height;
+    float Width, Height;
 	std::string TextureId;
 	SDL_RendererFlip Flip;
 };
 
 class GameObject : public IObject {
 public:
-	GameObject(Properties* properties);
+	explicit GameObject(Properties* properties);
 
-	virtual void Render() = 0;
+	virtual void Render() override = 0;
 	virtual void Update(float deltaTime) = 0;
 	virtual void Clean() = 0;
 
 protected:
 	Transform* m_Transfrom;
-	int m_Width, m_Height;
+	float m_Width, m_Height;
 	std::string m_TextureId;
 	SDL_RendererFlip m_Flip;
 };

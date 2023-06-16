@@ -1,5 +1,6 @@
 #include "Core/Engine.h"
 #include "Timer/Timer.h"
+#include <memory>
 
 int main(int argc, char** argv) {
 
@@ -8,31 +9,26 @@ int main(int argc, char** argv) {
         SDL_Log("SDL library is running.");
     }
 
-    // Initialize game engine instance and members
-    Engine::GetInstance()->Init();
+    const std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 
+
+    // Initialize game engine instance and members
     // Set delta time for update
 
     // Handle game events, updates and render as long as the engine is running
-    while (Engine::GetInstance()->isRunning()) {
+    while (engine->isRunning()) {
         // Engine handles game events
-        Engine::GetInstance()->Events();
+        engine->Events();
 
         // Engine updates objects and entities movements
-        Engine::GetInstance()->Update();
+        engine->Update();
 
         // Engine renders updated states
-        Engine::GetInstance()->Render();
+        engine->Render();
 
         // Calculate framerate
-        Timer::GetInstance()->Tick();
-
-        // Quit game
-        //Engine::GetInstance()->Quit();
+        engine->Tick();
     }
-
-    // Clean up engine instances and members
-    Engine::GetInstance()->Clean();
 
     return 0;
 }

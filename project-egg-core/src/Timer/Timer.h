@@ -7,14 +7,11 @@ const float TARGET_FRAMERATE = 1.5f;
 
 class Timer {
 public:
+    Timer();
 	void Tick();
-	float GetDeltaTime() { return m_DeltaTime;}
-	static Timer* GetInstance() { 
-		return s_Instance = (s_Instance != nullptr) ? s_Instance : new Timer(); }
+	[[nodiscard]] float GetDeltaTime() const { return m_DeltaTime;}
 
 private:
-	Timer();
-	static Timer* s_Instance;
 	float m_DeltaTime;
 	float m_LastTime;
 };

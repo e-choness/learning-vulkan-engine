@@ -10,12 +10,12 @@ void Animation::Update(float deltaTime)
 	m_SpriteFrame = (SDL_GetTicks() / m_AnimationSpeed) % m_FrameCount;
 }
 
-void Animation::Render(float x, float y, int spriteWidth, int spriteHeight)
+void Animation::Render(AssetManager* assetManager, float x, float y, int spriteWidth, int spriteHeight)
 {
-	AssetManager::GetInstance()->DrawFrame(m_TextureId, x, y, spriteWidth, spriteHeight, m_SpriteRow, m_SpriteFrame, m_Flip);
+    assetManager->DrawFrame(m_TextureId, x, y, spriteWidth, spriteHeight, m_SpriteRow, m_SpriteFrame, m_Flip);
 }
 
-void Animation::SetProperties(std::string textureId, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip)
+void Animation::SetProperties(const std::string& textureId, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip)
 {
 	m_TextureId = textureId;
 	m_SpriteRow = spriteRow;

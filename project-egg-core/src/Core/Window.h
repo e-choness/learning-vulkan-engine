@@ -7,16 +7,16 @@
 class Window {
 public:
     // Constructor
-    Window(std::string title, int w, int h, Uint32 flags);
+    Window(const std::string& title, int w, int h, Uint32 flags);
 
     // Destructor
     ~Window();
 
     // Returns a const pointer to the window
-    SDL_Window* GetInstance() const;
+    [[nodiscard]] SDL_Window* GetInstance() const;
 
     // Returns window status
-    inline bool IsRunning() { return m_IsRunning; }
+    [[nodiscard]] inline bool IsRunning() const { return m_IsRunning; }
 
 private:  
     // Pointer to the window
