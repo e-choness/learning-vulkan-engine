@@ -1,0 +1,14 @@
+//
+// Created by echo_ on 2023-06-15.
+//
+
+#ifndef PROJECT_EGG_CORE_SLN_DRAWFRAMESTRATEGY_H
+#define PROJECT_EGG_CORE_SLN_DRAWFRAMESTRATEGY_H
+
+
+class DrawFrameStrategy {
+
+};
+
+
+#endif //PROJECT_EGG_CORE_SLN_DRAWFRAMESTRATEGY_H
