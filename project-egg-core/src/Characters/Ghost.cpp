@@ -3,7 +3,7 @@
 Ghost::Ghost(Properties* properties) : Character(properties)
 {
 	m_RigidBody = new RigidBody();
-	m_Animation = new Animation();
+	m_Animation = new Animation(<#initializer#>);
 	m_RigidBody->UnsetGravity();
 }
 

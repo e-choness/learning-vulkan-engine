@@ -5,6 +5,7 @@
 #include "Timer/Timer.h"
 #include "Map/GameMap.h"
 #include "Characters/Ghost.h"
+#include "Graphics/Renderer.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -32,24 +33,18 @@ public:
     // Game running flag.
 	[[nodiscard]] bool isRunning() const { return m_IsRunning; }
 
-    // Game renderer getter.
-	SDL_Renderer* GetRenderer();
 
 private:
 	// The flag which indicates the engine is running
 	bool m_IsRunning;
 
-    // Window
-    SDL_Window* m_Window;
-
-    // Renderer
-    SDL_Renderer* m_Renderer;
+    Renderer m_Renderer;
 
 	// Game Map
 	GameMap* m_LevelMap;
 
     // Asset Manager
-    AssetManager m_AssetManager;
+    AssetManager m_AssetManager = AssetManager(m_Renderer.GetRenderer());
 
     // Framerate timer
     Timer m_Timer;

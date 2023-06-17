@@ -21,7 +21,7 @@ file(GLOB_RECURSE PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/*.h ${PROJECT_SOURCE_DIR
 #----------------------------------------------------------------
 # Add executable files
 #----------------------------------------------------------------
-add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} main.cpp Graphics/DrawFrameStrategy.cpp Graphics/DrawFrameStrategy.h)
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} main.cpp Object/ObjectProperties.h Graphics/RenderProperties.h Graphics/AssetProperties.h)
 
 #----------------------------------------------------------------
 # Link third party libraries

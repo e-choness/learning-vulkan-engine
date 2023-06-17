@@ -7,10 +7,10 @@
 
 class Animation {
 public:
-	Animation();
+	Animation(std::string &mTextureId);
 
 	void Update(float deltaTime);
-	void Render(AssetManager* assetManager, float x, float y, int spriteWidth, int spriteHeight);
+	void Render(AssetManager* assetManager, float x, float y, int spriteWidth, int spriteHeight) const;
 	void SetProperties(const std::string& textureId, int spriteRow, int frameCount, int animationSpeed, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 

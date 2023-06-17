@@ -1,6 +1,6 @@
 #include "AssetManager.h"
 
-AssetManager::AssetManager() {
+AssetManager::AssetManager(SDL_Renderer* renderer):m_Renderer(renderer) {
 
 }
 
@@ -12,7 +12,7 @@ bool AssetManager::LoadTexture(const std::string& id, const std::string& filenam
 		return false;
 	}
 
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(m_Renderer, surface);
 	SDL_DestroySurface(surface);
 
 	if (texture == nullptr) {
@@ -24,31 +24,14 @@ bool AssetManager::LoadTexture(const std::string& id, const std::string& filenam
 	return true;
 }
 
-void AssetManager::DrawTexture(const std::string& id, float x, float y, float width, float height, SDL_RendererFlip flip)
-{
-    SDL_FRect srcRect = { 0, 0, width, height };
-    SDL_FRect destRect = { x, y, width, height };
-	SDL_RenderTextureRotated(m_renderer, m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
-}
-
-void AssetManager::DrawFrame(const std::string& id, float x, float y, float width, float height, int row, int frame, SDL_RendererFlip flip)
-{
-    SDL_FRect srcRect = { width * static_cast<float>(frame), height * static_cast<float>(row-1), width, height };
-    SDL_FRect destRect = { x, y, width, height };
-    SDL_RenderTextureRotated(m_renderer, m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
-}
-
-void AssetManager::DrawTile(const std::string& tilesetId, int tileSize, float x, float y, float width, float height, int row, SDL_RendererFlip flip)
-{
-    SDL_FRect srcRect = { x, y, static_cast<float>(tileSize), static_cast<float>(tileSize) };
-    SDL_FRect destRect = { static_cast<float>(tileSize), static_cast<float>(tileSize*(row-1)), static_cast<float>(tileSize), static_cast<float>(tileSize) };
-    SDL_RenderTextureRotated(m_renderer, m_TextureMap[tilesetId], &srcRect, &destRect, 0.0, nullptr, flip);
+SDL_Texture* AssetManager::GetTexture(const std::string& id){
+    return m_TextureMap[id];
 }
 
 void AssetManager::DropTexture(const std::string& id)
 {
-	SDL_DestroyTexture(m_TextureMap[id]);
-	m_TextureMap.erase(id);
+    SDL_DestroyTexture(m_TextureMap[id]);
+    m_TextureMap.erase(id);
 }
 
 void AssetManager::CleanTexture()
@@ -57,7 +40,33 @@ void AssetManager::CleanTexture()
         SDL_DestroyTexture(it.second);
     }
 
-	m_TextureMap.clear();
+    m_TextureMap.clear();
 }
+
+
+
+//XXX TO BE DELETED
+void AssetManager::DrawTexture(const std::string& id, float x, float y, float width, float height, SDL_RendererFlip flip)
+{
+    SDL_FRect srcRect = { 0, 0, width, height };
+    SDL_FRect destRect = { x, y, width, height };
+	SDL_RenderTextureRotated(m_Renderer, m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
+}
+
+void AssetManager::DrawFrame(const std::string& id, float x, float y, float width, float height, int row, int frame, SDL_RendererFlip flip)
+{
+    SDL_FRect srcRect = { width * static_cast<float>(frame), height * static_cast<float>(row-1), width, height };
+    SDL_FRect destRect = { x, y, width, height };
+    SDL_RenderTextureRotated(m_Renderer, m_TextureMap[id], &srcRect, &destRect, 0.0, nullptr, flip);
+}
+
+void AssetManager::DrawTile(const std::string& tilesetId, int tileSize, float x, float y, float width, float height, int row, SDL_RendererFlip flip)
+{
+    SDL_FRect srcRect = { x, y, static_cast<float>(tileSize), static_cast<float>(tileSize) };
+    SDL_FRect destRect = { static_cast<float>(tileSize), static_cast<float>(tileSize*(row-1)), static_cast<float>(tileSize), static_cast<float>(tileSize) };
+    SDL_RenderTextureRotated(m_Renderer, m_TextureMap[tilesetId], &srcRect, &destRect, 0.0, nullptr, flip);
+}
+
+
 
 
