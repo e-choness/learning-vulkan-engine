@@ -5,3 +5,10 @@ set(CMAKE_CXX_STANDARD 20)
 # Dependencies from ThirdParty libraries
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Application)
+
+#----------------------------------------------------------------
+# Add executable files
+#----------------------------------------------------------------
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCES}/Application/EntryPoint.cpp)
+

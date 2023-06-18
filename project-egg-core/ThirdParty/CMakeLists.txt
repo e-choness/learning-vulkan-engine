@@ -42,6 +42,7 @@ add_subdirectory(SDL2)
 #include_directories(${sdl2_image_SOURCE_DIR}/include)
 
 set(BUILD_SHARED_LIBS OFF)
+set(SDL3IMAGE_ROOTPROJECT OFF)
 add_subdirectory(SDL2_image)
 
 ##--------------------------------------------------------------------
