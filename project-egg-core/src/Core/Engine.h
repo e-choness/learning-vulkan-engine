@@ -1,71 +1,57 @@
 #pragma once
 
 #include <SDL.h>
-#include <SDL_image.h>
-
-#include "Window.h"
-#include "Renderer.h"
-#include "EventsHandler.h"
-
-#include "Physics/Vector2D.h"
-#include "Physics/Transform.h"
-
-#include "Inputs/InputSystem.h"
-
+#include <Graphics/AssetManager.h>
 #include "Timer/Timer.h"
-
-#include "Characters/Ghost.h"
-
 #include "Map/GameMap.h"
-#include "Map/MapParser.h"
+#include "Characters/Ghost.h"
+#include "Graphics/Renderer.h"
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
-class AssetManager;
 class Engine
 {
-public:	
-	static Engine* GetInstance();
+public:
+    // The engine constructor
+    Engine();
+    ~Engine();
 
-	bool Init();
+    // Init Check
+    static bool InitCheck();
+
+    // Game cleanup functions.
 	bool Clean();
 	void Quit();
 
-
+    // Game loop events.
 	void Update();
 	void Render();
-	void Events();
+	static void Events();
+    void Tick();
 
-	inline bool isRunning() { return m_IsRunning; }
+    // Game running flag.
+	[[nodiscard]] bool isRunning() const { return m_IsRunning; }
 
-	SDL_Renderer* GetRenderer();
-
-protected:
-	
 
 private:
-	// The engine onstructor
-	Engine();
-
-	bool InitCheck();
-
 	// The flag which indicates the engine is running
 	bool m_IsRunning;
 
-	// The only engine instance here
-	static Engine* s_Instance;
-
-	// Window
-	Window* m_window;
-
-	// Renderer
-	Renderer* m_renderer;
-
-	// Events Handler
-	EventsHandler* m_EventsHandler;
+    Renderer m_Renderer;
 
 	// Game Map
 	GameMap* m_LevelMap;
+
+    // Asset Manager
+    AssetManager m_AssetManager = AssetManager(m_Renderer.GetRenderer());
+
+    // Framerate timer
+    Timer m_Timer;
+
+    // testing members
+    Properties ghostProperties = Properties("ghost-floating", 100.0f, 50.0f, 50, 55);
+    Ghost ghost = Ghost(&ghostProperties);
+
 };
 

@@ -14,7 +14,7 @@ MapParser* MapParser::GetInstance()
 
 bool MapParser::Load()
 {
-	return Parse("MAP", "../night-forest.tmx");
+	return Parse("MAP", R"(D:\project-egg\project-egg-core\assets\background\night-forest.tmx)");
 }
 
 void MapParser::Clean()
