@@ -21,15 +21,15 @@ file(GLOB_RECURSE PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/*.h ${PROJECT_SOURCE_DIR
 #----------------------------------------------------------------
 # Add executable files
 #----------------------------------------------------------------
-add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} main.cpp Object/ObjectProperties.h Graphics/RenderProperties.h Graphics/AssetProperties.h)
+#add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} EntryPoint.cpp)
 
 #----------------------------------------------------------------
 # Link third party libraries
 #----------------------------------------------------------------
-target_link_libraries(${PROJECT_NAME} PUBLIC
-        SDL3-static
-        SDL3_image
-        tinyxml2)
+#target_link_libraries(${PROJECT_NAME} PUBLIC
+#        SDL3-static
+#        SDL3_image
+#        tinyxml2)
 
 #----------------------------------------------------------------
 # Include third-party headers
