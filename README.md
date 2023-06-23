@@ -41,7 +41,7 @@ For this porject CMake will provide a more flexible building system and compilat
 * [x] Basic physics component;
 * [x] Basic event handling.
 
-## On-going plan
+## On-going Plan
 
 * [ ] Add new CMake configurations for a better build system;
 * [ ] Restructure source modules into libraries.
