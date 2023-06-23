@@ -5,7 +5,7 @@ A self-taught project learning about game engine architecture and functionality.
 
 ## Programming Language
 
-[C++20](https://en.cppreference.com/)
+### [C++20](https://en.cppreference.com/)
 
 It provides a powerful combination of performance, modern language features, an enhanced Standard Library, compatibility, a thriving ecosystem, and portability. These factors make it an excellent choice for game engine development, empowering developers to create high-performance, feature-rich, and cross-platform experiences.
 
@@ -35,18 +35,13 @@ For this porject CMake will provide a more flexible building system and compilat
 
 ## Implemented Modules
 
-Core game engine loop;
-
-Renderer for static background and game object;
-
-Basic input functionality;
-
-Basic physics component;
-
-Basic event handling.
+* [x] Core game engine loop;
+* [x] Renderer for static background and game object;
+* [x] Basic input functionality;
+* [x] Basic physics component;
+* [x] Basic event handling.
 
 ## On-going plan
 
-Add new CMake configurations for a better build system;
-
-Restructure source modules into libraries.
+* [ ] Add new CMake configurations for a better build system;
+* [ ] Restructure source modules into libraries.
