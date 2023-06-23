@@ -3,15 +3,11 @@
 
 A self-taught project learning about game engine architecture and functionality.
 
----
-
 ## Programming Language
 
 [C++20](https://en.cppreference.com/)
 
 It provides a powerful combination of performance, modern language features, an enhanced Standard Library, compatibility, a thriving ecosystem, and portability. These factors make it an excellent choice for game engine development, empowering developers to create high-performance, feature-rich, and cross-platform experiences.
-
----
 
 ## External Libraries
 
@@ -29,8 +25,6 @@ In this project it is used for parsing 2D tilemaps created by tilesets.
 
 (More to come)
 
----
-
 ## Build Tool
 
 ### [CMake](https://cmake.org/download/)
@@ -38,8 +32,6 @@ In this project it is used for parsing 2D tilemaps created by tilesets.
 CMake simplifies the build process by providing a platform-independent configuration and generation system. Its flexibility, integration with different build systems, and support for dependency management make it a popular choice for managing complex software projects across multiple platforms and environments.
 
 For this porject CMake will provide a more flexible building system and compilation options.
-
----
 
 ## Implemented Modules
 
@@ -52,8 +44,6 @@ Basic input functionality;
 Basic physics component;
 
 Basic event handling.
-
----
 
 ## On-going plan
 
