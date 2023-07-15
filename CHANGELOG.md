@@ -1,5 +1,8 @@
 # Change Logs
 
+Version 2.0.0 (07/14/2023)
+Re-purpose the repository to learning vulkan engine.
+
 Version 1.1.6 (06/10/2023)
 Added timer to ensure the fps is consistent.
 

@@ -3,7 +3,22 @@
 
 A self-taught project learning about vulkan game engine architecture and functionality.
 
+## Programming Language
+
+### [C++20](https://en.cppreference.com/)
+
+It provides a powerful combination of performance, modern language features, an enhanced Standard Library, compatibility, a thriving ecosystem, and portability. These factors make it an excellent choice for game engine development, empowering developers to create high-performance, feature-rich, and cross-platform experiences.
+
+## External Libraries
+
+### [Vulkan](https://www.vulkan.org/)
+
+Vulkan is a cross-platform industry standard enabling developers to target a wide range of devices with the same graphics API.
+
 ---
+
+# Legacy Version
+
 This project is re-purposed to specifically learn about vulkan engine. The plugins below is used for other functionalities.
 
 ## Programming Language
