@@ -1,7 +1,10 @@
 <!-- Headings -->
-# Engine Game Genesis
+# Learning Vulkan Engine
 
-A self-taught project learning about game engine architecture and functionality.
+A self-taught project learning about vulkan game engine architecture and functionality.
+
+---
+This project is re-purposed to specifically learn about vulkan engine. The plugins below is used for other functionalities.
 
 ## Programming Language
 

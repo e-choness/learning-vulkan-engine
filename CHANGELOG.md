@@ -1,3 +1,5 @@
+# Change Logs
+
 Version 1.1.6 (06/10/2023)
 Added timer to ensure the fps is consistent.
 

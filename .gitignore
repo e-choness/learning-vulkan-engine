@@ -34,7 +34,7 @@
 
 #Specific folders
 .idea
-ThirdParty
+third-party
 
 ### CMake ###
 CMakeLists.txt.user
