@@ -89,7 +89,7 @@ elif defined(_POSIX_VERSION)
 #ifdef _MSC_VER
 #define KAPI __declspec(dllexport)
 #else
-#define KAPI __attribute__((visibility("default")))
+#define KAPI __attribute__(visibility("default"))
 #endif
 // Imports
 #else
