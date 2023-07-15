@@ -54,3 +54,7 @@ _deps
 ### CMake Patch ###
 # External projects
 *-prefix/
+
+### Visual Studio Code ###
+.vscode
+bin
