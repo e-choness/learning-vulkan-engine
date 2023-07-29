@@ -7,13 +7,8 @@ set(INCLUDE_DIR "${SOURCE_DIR}/include")
 ################################################################
 # Define header and source files
 ################################################################
-set(HEADER_LIST "${INCLUDE_DIR}/EngineCore.h"
-        "${INCLUDE_DIR}/vk_engine.h"
-        "${INCLUDE_DIR}/vk_init.h"
-        "${INCLUDE_DIR}/vk_types.h")
-
-set(SOURCE_LIST "${SOURCE_DIR}/EngineCore.cpp"
-        "${SOURCE_DIR}/vk_engine.cpp")
+file(GLOB HEADER_LIST ${INCLUDE_DIR}/*.h)
+file(GLOB SOURCE_LIST ${SOURCE_DIR}/*.cpp)
 
 ################################################################
 # Add library
@@ -33,4 +28,5 @@ target_include_directories(engine_library PUBLIC ${INCLUDE_DIR})
 target_link_libraries(engine_library PUBLIC
         volk
         SDL3-static
+        vk-bootstrap::vk-bootstrap
 )
