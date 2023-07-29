@@ -5,6 +5,9 @@
 #include "../src/include/EngineCore.hpp"
 int main(int argc, char **argv){
     std::cout << "This is the engine test.\n";
-    EngineCore engineCore = EngineCore();
+    EngineCore engine;
+    engine.init();
+    engine.run();
+    engine.cleanup();
     return 0;
 }

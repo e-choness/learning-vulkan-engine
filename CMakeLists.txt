@@ -15,7 +15,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
 
-
 ################################################################
 # Include subdirectories
 ################################################################

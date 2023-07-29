@@ -5,18 +5,19 @@
 #include "EngineCore.hpp"
 #include <iostream>
 
-EngineCore::EngineCore(){
-    std::cout << "This is the engine core\n";
-}
-
 void EngineCore::init() {
-
+    m_IsRunning = true;
+    std::cout << "This is initialization\n";
 }
 
 void EngineCore::run() {
 
+    while (m_IsRunning) {
+        std::cout << "This is the running loop\n";
+        m_IsRunning = false;
+    }
 }
 
 void EngineCore::cleanup() {
-
+    std::cout << "This is going to clean up the garbage\n";
 }
