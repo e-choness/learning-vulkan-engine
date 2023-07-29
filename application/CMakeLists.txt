@@ -10,6 +10,7 @@ project(Entry
 ################################################################
 add_executable(${PROJECT_NAME} EntryPoint.cpp)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(${PROJECT_NAME} PUBLIC
         engine_library
         )
+

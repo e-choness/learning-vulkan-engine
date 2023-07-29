@@ -3,4 +3,4 @@
 //
 
 #pragma once
-#include "../../third-party/vulkan/include/vulkan/vulkan.h"
+#include "volk.h"

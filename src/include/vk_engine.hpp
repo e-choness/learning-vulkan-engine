@@ -5,6 +5,7 @@
 #include "vk_types.hpp"
 
 class VulkanEngine{
+public:
     bool _isInitialized{false};
     int _frameNumber {0};
 

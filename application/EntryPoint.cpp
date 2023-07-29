@@ -1,11 +1,11 @@
 //
 // Created by echo_ on 2023-07-27.
 //
-#include <iostream>
-#include "../src/include/EngineCore.hpp"
+
+#include "vk_engine.hpp"
 int main(int argc, char **argv){
-    std::cout << "This is the engine test.\n";
-    EngineCore engine;
+
+    VulkanEngine engine;
     engine.init();
     engine.run();
     engine.cleanup();
