@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "vk_types.hpp"
+#include "vk_types.h"
 
 namespace vkinit{
 
