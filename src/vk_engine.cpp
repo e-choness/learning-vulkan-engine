@@ -2,10 +2,8 @@
 // Created by echo_ on 2023-07-28.
 //
 #include "vk_engine.h"
-#include "vk_types.h"
+#include "EngineTypes.h"
 #include "vk_init.h"
-#include "include/vk_engine.h"
-
 
 #include <SDL.h>
 #include <SDL_vulkan.h>

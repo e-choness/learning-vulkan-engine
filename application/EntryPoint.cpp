@@ -2,10 +2,10 @@
 // Created by echo_ on 2023-07-27.
 //
 
-#include "vk_engine.h"
+#include "EngineCore.h"
 int main(int argc, char **argv){
 
-    VulkanEngine engine;
+    auto engine = engine::EngineCore();
     engine.init();
     engine.run();
     engine.cleanup();
