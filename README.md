@@ -5,7 +5,7 @@ A self-taught project learning about vulkan game engine architecture and functio
 
 ## Programming Language
 
-### [C++20](https://en.cppreference.com/)
+### [C++ 20](https://en.cppreference.com/)
 
 It provides a powerful combination of performance, modern language features, an enhanced Standard Library, compatibility, a thriving ecosystem, and portability. These factors make it an excellent choice for game engine development, empowering developers to create high-performance, feature-rich, and cross-platform experiences.
 
@@ -14,6 +14,16 @@ It provides a powerful combination of performance, modern language features, an 
 ### [Vulkan](https://www.vulkan.org/)
 
 Vulkan is a cross-platform industry standard enabling developers to target a wide range of devices with the same graphics API.
+
+### [GLFW](https://www.glfw.org/)
+
+GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events.
+
+## Build System
+
+### [CMake](https://cmake.org/)
+
+CMake is an open-source cross-platform build system and configuration tool used primarily to manage the build process of software projects. It allows developers to define the build configuration for their codebase in a platform-independent manner, making it easier to build and deploy projects on different operating systems and compilers.
 
 ---
 
