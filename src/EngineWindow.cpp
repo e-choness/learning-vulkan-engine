@@ -27,35 +27,29 @@ namespace engine{
             glfwSetWindowSize(window, width, height);
         }
 
-//        void WindowTitleCallback(GLFWwindow* window, const char* title){
-//            glfwSetWindowTitle(window, title);
-//        }
+        void WindowTitleCallback(GLFWwindow* window, const char* title){
+            glfwSetWindowTitle(window, title);
+        }
     }
     EngineWindow::EngineWindow(WindowProperties& windowProperties){
         SetProperties(windowProperties);
-        InitWindow();
-
     }
 
-    EngineWindow::~EngineWindow() {
-        glfwDestroyWindow(m_WindowInstance);
-        glfwTerminate();
-    }
+//    EngineWindow::~EngineWindow() {
+//
+//    }
 
     void EngineWindow::SetProperties(WindowProperties& windowProperties){
         m_WinProperties = windowProperties;
     }
 
     bool EngineWindow::InitWindow() {
-        glfwSetErrorCallback(WindowErrorCallback);
-        glfwSetWindowCloseCallback(m_WindowInstance, WindowCloseCallback);
-        glfwSetKeyCallback(m_WindowInstance, WindowKeyCallback);
-        glfwSetWindowFocusCallback(m_WindowInstance, WindowFocusCallback);
-        glfwSetWindowSizeCallback(m_WindowInstance, WindowSizeCallback);
-
         m_IsInitialized = glfwInit();
         if(!m_IsInitialized)
-            return m_IsInitialized;
+            return -1;
+
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
         m_WindowInstance = glfwCreateWindow(
                 static_cast<int>(m_WinProperties.Size.Width),
@@ -67,8 +61,22 @@ namespace engine{
             m_IsInitialized = false;
             return m_IsInitialized;
         }
+        glfwSetErrorCallback(WindowErrorCallback);
+        glfwSetWindowCloseCallback(m_WindowInstance, WindowCloseCallback);
+        glfwSetKeyCallback(m_WindowInstance, WindowKeyCallback);
+        glfwSetWindowFocusCallback(m_WindowInstance, WindowFocusCallback);
+        glfwSetWindowSizeCallback(m_WindowInstance, WindowSizeCallback);
 
         return m_IsInitialized;
+    }
+
+    void EngineWindow::Run(){
+        glfwPollEvents();
+    }
+
+    void EngineWindow::CleanUpWindow() {
+        glfwDestroyWindow(m_WindowInstance);
+        glfwTerminate();
     }
 
     bool EngineWindow::ShouldClose() {

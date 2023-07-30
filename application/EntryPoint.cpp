@@ -3,11 +3,12 @@
 //
 
 #include "EngineCore.h"
+#include <stdexcept>
 int main(int argc, char **argv){
 
     auto engine = engine::EngineCore();
-    engine.init();
-    engine.run();
-    engine.cleanup();
+    engine.Init();
+    engine.Run();
+    engine.CleanUp();
     return 0;
 }

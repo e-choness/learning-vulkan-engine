@@ -15,10 +15,12 @@ struct WindowProperties{
     class EngineWindow{
     public:
         explicit EngineWindow(WindowProperties& windowProperties);
-        ~EngineWindow();
+        ~EngineWindow() = default;
 
         void SetProperties(WindowProperties& windowProperties);
         bool InitWindow();
+        void Run();
+        void CleanUpWindow();
         bool ShouldClose();
         bool IsInitialized();
         double GetTime();

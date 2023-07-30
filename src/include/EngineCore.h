@@ -9,9 +9,9 @@ namespace engine{
     public:
         EngineCore();
         ~EngineCore() = default;
-        void init();
-        void run();
-        void cleanup();
+        void Init();
+        void Run();
+        void CleanUp();
 
     private:
         std::unique_ptr<EngineWindow> m_Window;
