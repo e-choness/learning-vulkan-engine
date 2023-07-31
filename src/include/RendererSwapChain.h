@@ -5,6 +5,11 @@
 #pragma once
 #include "EngineTypes.h"
 
-namespace vkinit{
+namespace engine{
+    class RendererSwapChain{
+    public:
 
+    private:
+
+    };
 }

@@ -5,7 +5,6 @@
 #include "EngineCore.h"
 #include <iostream>
 
-
 namespace engine{
     EngineCore::EngineCore() {
         auto winProperties = WindowProperties{1600, 900, "Vulkan Engine", nullptr, nullptr};
@@ -31,7 +30,6 @@ namespace engine{
             //TODO: Engine Running Logic Here
             m_Window->Run();
             m_IsRunning = !m_Window->ShouldClose();
-//            std::cout << "This is the running loop\n";
         }
     }
 

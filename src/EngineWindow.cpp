@@ -30,6 +30,12 @@ namespace engine{
         void WindowTitleCallback(GLFWwindow* window, const char* title){
             glfwSetWindowTitle(window, title);
         }
+
+        void WindowCursorPositionCallback(GLFWwindow* window, double x, double y){
+//            // TODO: Keep track of cursor position as input
+//            glfwSetCursorPos(window, x, y);
+//            std::cout << "Cursor position: (" << x << "," << y << ")\n";
+        }
     }
     EngineWindow::EngineWindow(WindowProperties& windowProperties){
         SetProperties(windowProperties);
@@ -66,6 +72,7 @@ namespace engine{
         glfwSetKeyCallback(m_WindowInstance, WindowKeyCallback);
         glfwSetWindowFocusCallback(m_WindowInstance, WindowFocusCallback);
         glfwSetWindowSizeCallback(m_WindowInstance, WindowSizeCallback);
+        glfwSetCursorPosCallback(m_WindowInstance, WindowCursorPositionCallback);
 
         return m_IsInitialized;
     }

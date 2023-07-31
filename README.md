@@ -25,6 +25,18 @@ GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vu
 
 CMake is an open-source cross-platform build system and configuration tool used primarily to manage the build process of software projects. It allows developers to define the build configuration for their codebase in a platform-independent manner, making it easier to build and deploy projects on different operating systems and compilers.
 
+### [VkBootstrap](https://github.com/charles-lunarg/vk-bootstrap)
+
+A utility library that jump starts initialization of Vulkan, simplifies vulkan instance creation, device selection, getting queues, swapchain creation, GPU selection, enabling extensions.
+
+### [volk](https://github.com/zeux/volk)
+
+volk is a meta-loader for Vulkan. It allows you to dynamically load entrypoints required to use Vulkan without linking to vulkan-1.dll or statically linking Vulkan loader.
+
+### [GLM](https://github.com/g-truc/glm)
+
+GLM provides classes and functions designed and implemented with the same naming conventions and functionality than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+
 ---
 
 # Legacy Version
