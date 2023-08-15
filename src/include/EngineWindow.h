@@ -31,6 +31,8 @@ namespace engine{
         bool IsInitialized();
         double GetTime();
         void SetTitle(const char* title);
+        GLFWwindow* GetWindowInstance() {return m_WindowInstance;}
+
     private:
         WindowProperties m_WinProperties;
         GLFWwindow* m_WindowInstance;

@@ -17,6 +17,9 @@
     } while(0)                      \
 }
 namespace engine{
+    namespace {
+        //TODO: add allocator
+    }
     EngineRenderer::EngineRenderer() {
 
     }
@@ -26,6 +29,19 @@ namespace engine{
     }
 
     void EngineRenderer::InitRenderer() {
+        InitInstance();
+
+    }
+
+    bool EngineRenderer::Run() {
+        return false;
+    }
+
+    void EngineRenderer::CleanUp() {
+
+    }
+
+    void EngineRenderer::InitInstance() {
         vkb::InstanceBuilder instanceBuilder;
 
         auto instRet = instanceBuilder.set_app_name("God Howard") // All hail Todd Howard
@@ -38,13 +54,29 @@ namespace engine{
 
         m_VkInstance = vkbInstance.instance;
         m_DebugMessenger = vkbInstance.debug_messenger;
+        if(!m_Window)
+        {
+            std::cout<< "No window for the renderer.\n";
+            return;
+        }
+
+        glfwCreateWindowSurface(m_VkInstance, m_Window->GetWindowInstance(), nullptr,&m_RendererDevices.Surface);
+
+        vkb::PhysicalDeviceSelector selector{ vkbInstance };
+        vkb::PhysicalDevice physicalDevice = selector
+                .set_minimum_version(1,1)
+                .set_surface(m_RendererDevices.Surface)
+                .select()
+                .value();
+
+        vkb::DeviceBuilder deviceBuilder{ physicalDevice};
+        vkb::Device vkDevice = deviceBuilder.build().value();
+
+        m_RendererDevices.DeviceAbstraction = vkDevice.device;
+        m_RendererDevices.PhysicalDevice = physicalDevice.physical_device;
+
     }
 
-    bool EngineRenderer::Run() {
-        return false;
-    }
 
-    void EngineRenderer::CleanUp() {
 
-    }
 }

@@ -3,13 +3,10 @@
 //
 #pragma once
 #include <volk.h>
+#include "EngineWindow.h"
+#include "EngineDevices.h"
 
 namespace engine{
-    struct RendererExternal{
-        VkSurfaceKHR Surface;
-
-    };
-
     class EngineRenderer{
     public:
         EngineRenderer();
@@ -18,13 +15,17 @@ namespace engine{
         void InitRenderer();
         bool Run();
         void CleanUp();
+        void SetWindow(EngineWindow* window) {m_Window = window;}
+        RendererDevices* GetRendererDevices() {return &m_RendererDevices;}
+
+    private:
+        void InitInstance();
 
     private:
         VkInstance m_VkInstance;
         VkDebugUtilsMessengerEXT m_DebugMessenger;
-        VkPhysicalDevice m_PhysicalDevice;
-        VkDevice m_DeviceAbstraction;
-//        RendererExternal m_
+        RendererDevices m_RendererDevices;
+        EngineWindow* m_Window;
     };
 
 }

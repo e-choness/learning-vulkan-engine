@@ -2,7 +2,7 @@
 // Created by echo_ on 2023-07-27.
 //
 #pragma once
-#include "EngineWindow.h"
+#include "EngineRenderer.h"
 #include <memory>
 namespace engine{
     class EngineCore {
@@ -14,7 +14,8 @@ namespace engine{
         void CleanUp();
 
     private:
-        std::unique_ptr<EngineWindow> m_Window;
+        EngineWindow* m_Window;
+        std::unique_ptr<EngineRenderer> m_Renderer;
         bool m_IsRunning;
     };
 }
