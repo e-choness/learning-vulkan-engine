@@ -5,11 +5,11 @@
 #include "EngineCore.h"
 #include <iostream>
 
-
 namespace engine{
     EngineCore::EngineCore() {
         auto winProperties = WindowProperties{1600, 900, "Vulkan Engine", nullptr, nullptr};
-        m_Window = std::make_unique<EngineWindow>(winProperties);
+        m_Window = new EngineWindow(winProperties);
+        m_Renderer = std::make_unique<EngineRenderer>();
     }
 
 //    EngineCore::~EngineCore() {
@@ -23,6 +23,8 @@ namespace engine{
         }
         m_IsRunning = true;
         std::cout << "Engine initialized\n";
+        m_Renderer->SetWindow(m_Window);
+        m_Renderer->InitRenderer();
     }
 
     void EngineCore::Run() {
@@ -31,7 +33,6 @@ namespace engine{
             //TODO: Engine Running Logic Here
             m_Window->Run();
             m_IsRunning = !m_Window->ShouldClose();
-//            std::cout << "This is the running loop\n";
         }
     }
 

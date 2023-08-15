@@ -3,7 +3,6 @@
 //
 
 #include "EngineCore.h"
-#include <stdexcept>
 int main(int argc, char **argv){
 
     auto engine = engine::EngineCore();
