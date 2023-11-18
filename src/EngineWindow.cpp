@@ -4,7 +4,7 @@
 namespace engine{
     namespace {
         void WindowErrorCallback(int error, const char* description){
-            std::cout << stderr << "Window error: " << description << "\n";
+            std::cerr << "Window error: " <<  error << description << "\n";
         }
 
         void WindowCloseCallback(GLFWwindow* window){
@@ -17,62 +17,62 @@ namespace engine{
         }
 
         void WindowFocusCallback(GLFWwindow* window, int focused){
-            // TODO: set window focus state
-            // app.SetFocused();
+            // TODO: have fun with when the window is focused and the alternative
+            if(focused == GLFW_TRUE){
+                glfwFocusWindow(window);
+                glfwSetWindowTitle(window, "The One and Only Engine.");
+                std::cout << "Engine window focused.\n";
+            }else{
+                glfwSetWindowTitle(window, "Hey! Where are you going?");
+                std::cout << "Engine window losses thy attention.\n";
+            }
         }
 
         void WindowSizeCallback(GLFWwindow* window, int width, int height){
             glfwSetWindowSize(window, width, height);
         }
 
-        void WindowTitleCallback(GLFWwindow* window, const char* title){
-            glfwSetWindowTitle(window, title);
-        }
-
         void WindowCursorPositionCallback(GLFWwindow* window, double x, double y){
 //            // TODO: Keep track of cursor position as input
-//            glfwSetCursorPos(window, x, y);
-//            std::cout << "Cursor position: (" << x << "," << y << ")\n";
+            glfwSetCursorPos(window, x, y);
+            std::cout << "Cursor position: (" << x << "," << y << ")\n";
         }
     }
-    EngineWindow::EngineWindow(WindowProperties& windowProperties){
-        SetProperties(windowProperties);
-    }
 
-//    EngineWindow::~EngineWindow() {
-//
-//    }
+    bool EngineWindow::InitWindow(WindowProperties& windowProperties) {
+        // Initialize window with properties
+        mWinProperties = windowProperties;
 
-    void EngineWindow::SetProperties(WindowProperties& windowProperties){
-        m_WinProperties = windowProperties;
-    }
+        // GLFW initialization
+        auto isInitialized = glfwInit();
+        if(!isInitialized)
+            return false;
 
-    bool EngineWindow::InitWindow() {
-        m_IsInitialized = glfwInit();
-        if(!m_IsInitialized)
-            return -1;
-
+        // GLFW window hints setup
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-        m_WindowInstance = glfwCreateWindow(
-                static_cast<int>(m_WinProperties.Size.Width),
-                static_cast<int>(m_WinProperties.Size.Height),
-                m_WinProperties.WindowTitle,
-                m_WinProperties.WindowMonitor,
-                m_WinProperties.WindowShare);
-        if(!m_WindowInstance){
-            m_IsInitialized = false;
-            return m_IsInitialized;
-        }
-        glfwSetErrorCallback(WindowErrorCallback);
-        glfwSetWindowCloseCallback(m_WindowInstance, WindowCloseCallback);
-        glfwSetKeyCallback(m_WindowInstance, WindowKeyCallback);
-        glfwSetWindowFocusCallback(m_WindowInstance, WindowFocusCallback);
-        glfwSetWindowSizeCallback(m_WindowInstance, WindowSizeCallback);
-        glfwSetCursorPosCallback(m_WindowInstance, WindowCursorPositionCallback);
+        // Create GLFW window
+        mGlfwWindow = glfwCreateWindow(
+                mWinProperties.WindowSize.Width,
+                mWinProperties.WindowSize.Height,
+                mWinProperties.WindowTitle,
+                mWinProperties.WindowMonitor,
+                mWinProperties.WindowShare);
 
-        return m_IsInitialized;
+        if(!mGlfwWindow){
+            return false;
+        }
+
+        // Set up window callback events
+        glfwSetErrorCallback(WindowErrorCallback);
+        glfwSetWindowCloseCallback(mGlfwWindow, WindowCloseCallback);
+        glfwSetKeyCallback(mGlfwWindow, WindowKeyCallback);
+        glfwSetWindowFocusCallback(mGlfwWindow, WindowFocusCallback);
+        glfwSetWindowSizeCallback(mGlfwWindow, WindowSizeCallback);
+        glfwSetCursorPosCallback(mGlfwWindow, WindowCursorPositionCallback);
+
+        return true;
     }
 
     void EngineWindow::Run(){
@@ -80,23 +80,12 @@ namespace engine{
     }
 
     void EngineWindow::CleanUpWindow() {
-        glfwDestroyWindow(m_WindowInstance);
+        glfwDestroyWindow(mGlfwWindow);
         glfwTerminate();
     }
 
     bool EngineWindow::ShouldClose() {
-        return glfwWindowShouldClose(m_WindowInstance);
+        return glfwWindowShouldClose(mGlfwWindow);
     }
 
-    double EngineWindow::GetTime() {
-        return glfwGetTime();
-    }
-
-    bool EngineWindow::IsInitialized() {
-        return m_IsInitialized;
-    }
-
-    void EngineWindow::SetTitle(const char* title){
-        glfwSetWindowTitle(m_WindowInstance, title);
-    }
 }

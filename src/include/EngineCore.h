@@ -6,21 +6,11 @@
 namespace engine{
     class EngineCore {
     public:
-        EngineCore();
-        ~EngineCore() = default;
         void Init();
         void Run();
         void CleanUp();
     private:
-        void InitVulkan();
-    private:
-        EngineWindow* m_Window;
-        VkInstance m_VkInstance;
-        VkDebugUtilsMessengerEXT m_DebugMessenger;
-        VkPhysicalDevice m_ChosenGPU;
-        VkDevice m_DeviceAbstraction;
-        VkSurfaceKHR m_Surface;
-
-        bool m_IsRunning;
+        EngineWindow mWindow;
+        bool mIsRunning = false;
     };
 }
