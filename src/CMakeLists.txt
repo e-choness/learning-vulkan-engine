@@ -29,6 +29,5 @@ target_include_directories(engine_library PUBLIC ${INCLUDE_DIR})
 target_link_libraries(engine_library PUBLIC
         glfw
         volk
-        SDL3-static
         vk-bootstrap::vk-bootstrap
 )

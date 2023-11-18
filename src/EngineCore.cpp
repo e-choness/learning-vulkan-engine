@@ -1,7 +1,3 @@
-//
-// Created by echo_ on 2023-07-27.
-//
-
 #include "EngineCore.h"
 #include <iostream>
 #include <VkBootstrap.h>

@@ -1,21 +1,7 @@
-//
-// Created by echo_ on 2023-07-28.
-//
 #include "EngineRenderer.h"
 #include <iostream>
 #include <VkBootstrap.h>
 
-#define VK_CHECK(x)                 \
-    do                              \
-    {                               \
-        VkResult err = x;           \
-        if (err)                    \
-        {                           \
-            std::cout << "Detected Vulkan error: " << err << "\n"; \
-            abort();                \
-        }                           \
-    } while(0)                      \
-}
 namespace engine{
     namespace {
         //TODO: add allocator

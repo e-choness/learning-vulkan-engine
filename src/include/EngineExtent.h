@@ -1,9 +1,7 @@
-//
-// Created by echo_ on 2023-07-30.
-//
-
 #pragma once
+
 #include <cstdint>
+
 namespace engine{
     struct Extent2D{
         uint32_t Width;
