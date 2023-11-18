@@ -25,7 +25,7 @@ namespace engine{
         ~EngineWindow() = default;
         bool InitWindow(WindowProperties& winProperties);
         void Run();
-        void CleanUpWindow();
+        void CleanUp();
 
         // Additional functions
         bool ShouldClose();

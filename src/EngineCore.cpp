@@ -27,7 +27,7 @@ namespace engine{
     }
 
     void EngineCore::CleanUp() {
-        mWindow.CleanUpWindow();
+        mWindow.CleanUp();
         std::cout << "Engine cleaned up.\n";
     }
 }

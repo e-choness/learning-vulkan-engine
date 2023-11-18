@@ -114,7 +114,7 @@ namespace engine{
         glfwPollEvents();
     }
 
-    void EngineWindow::CleanUpWindow() {
+    void EngineWindow::CleanUp() {
         glfwDestroyWindow(mGlfwWindow);
         glfwTerminate();
     }
