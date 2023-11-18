@@ -1,12 +1,10 @@
-//
-// Created by echo_ on 2023-07-28.
-//
-
 #pragma once
+
 #include <volk.h>
 #include <VkBootstrap.h>
 #include <vector>
 #include "EngineDevices.h"
+
 namespace engine{
     class RendererSwapChain{
         public:

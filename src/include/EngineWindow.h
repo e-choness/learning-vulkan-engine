@@ -1,8 +1,7 @@
-//
-// Created by echo_ on 2023-07-29.
-//
 #pragma once
+
 #define GLFW_INCLUDE_NONE
+
 #include "EngineExtent.h"
 #include <GLFW/glfw3.h>
 

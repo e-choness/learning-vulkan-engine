@@ -1,8 +1,6 @@
-//
-// Created by echo_ on 2023-07-29.
-//
 #include "EngineWindow.h"
 #include <iostream>
+
 namespace engine{
     namespace {
         void WindowErrorCallback(int error, const char* description){
