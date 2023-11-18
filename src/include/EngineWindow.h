@@ -31,7 +31,7 @@ namespace engine{
         bool ShouldClose();
 
     private:
-        WindowProperties mWinProperties{};
-        GLFWwindow* mGlfwWindow{};
+        WindowProperties mWinProperties;
+        GLFWwindow* mGlfwWindow;
     };
 }
