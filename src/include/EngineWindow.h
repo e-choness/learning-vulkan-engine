@@ -31,6 +31,9 @@ namespace engine{
         bool ShouldClose();
 
     private:
+        void SetupGlfwCallbacks();
+
+    private:
         WindowProperties mWinProperties;
         GLFWwindow* mGlfwWindow;
     };

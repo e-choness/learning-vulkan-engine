@@ -38,6 +38,7 @@ namespace engine{
                 glfwSetWindowPos(window, xPos, yPos);
 
                 glfwSetWindowSize(window, width, height);
+
                 std::cout << "Engine goes full screen mode.\n";
             }
 
@@ -46,6 +47,11 @@ namespace engine{
                 glfwSetWindowPos(window,WINDOW_X_OFFSET, WINDOW_Y_OFFSET);
                 glfwSetWindowSize(window, DEFAULT_WIDTH, DEFAULT_HEIGHT);
                 std::cout << "Engine is back to window mode.\n";
+            }
+
+            // Press M to minimize the window
+            if(key == GLFW_KEY_M && action == GLFW_PRESS){
+                glfwIconifyWindow(window);
             }
         }
 
@@ -74,6 +80,16 @@ namespace engine{
             glfwSetCursorPos(window, x, y);
             std::cout << "Cursor position: (" << x << "," << y << ")\n";
         }
+
+        void WindowIconifyCallback(GLFWwindow* window, int iconified){
+            if(iconified == GLFW_TRUE){
+                glfwSetWindowTitle(window, "I'm here, sitting in the corner.");
+                std::cout << "Dear engine is in the little corner.\n";
+            }else{
+                glfwSetWindowTitle(window, "I'm back, baby!");
+                std::cout << "Engine is BACK!\n";
+            }
+        }
     }
 
     bool EngineWindow::InitWindow(WindowProperties& windowProperties) {
@@ -101,6 +117,12 @@ namespace engine{
             return false;
         }
 
+        SetupGlfwCallbacks();
+
+        return true;
+    }
+
+    void EngineWindow::SetupGlfwCallbacks() {
         // Set up window callback events
         glfwSetErrorCallback(WindowErrorCallback);
         glfwSetWindowCloseCallback(mGlfwWindow, WindowCloseCallback);
@@ -108,11 +130,11 @@ namespace engine{
         glfwSetWindowFocusCallback(mGlfwWindow, WindowFocusCallback);
         glfwSetWindowSizeCallback(mGlfwWindow, WindowSizeCallback);
         glfwSetCursorPosCallback(mGlfwWindow, WindowCursorPositionCallback);
-
-        return true;
+        glfwSetWindowIconifyCallback(mGlfwWindow, WindowIconifyCallback);
     }
 
     void EngineWindow::Run(){
+//        glfwSwapBuffers(mGlfwWindow); // Swap buffers should have OpenGL or OpenGL ES context, it's not setup yet.
         glfwPollEvents();
     }
 
