@@ -3,17 +3,17 @@
 
 namespace engine{
     namespace {
-        // Origin positions of the screen
-        const uint16_t ORIGIN_POS_X = 0;
-        const uint16_t ORIGIN_POS_Y = 0;
-
         // Window mode position offsets
-        const uint16_t WINDOW_X_OFFSET = 100;
-        const uint16_t WINDOW_Y_OFFSET = 60;
+        const int WINDOW_X_OFFSET = 100;
+        const int WINDOW_Y_OFFSET = 60;
 
         // Window mode default height and width
-        const uint16_t DEFAULT_WIDTH = 1600;
-        const uint16_t DEFAULT_HEIGHT = 900;
+        const int DEFAULT_WIDTH = 1600;
+        const int DEFAULT_HEIGHT = 900;
+
+        // Opacity settings
+        const float WINDOW_SOLID = 1.0f;
+        const float WINDOW_OPAQUE = 0.86f;
 
         void WindowErrorCallback(int error, const char* description){
             std::cerr << "Window error: " <<  error << description << "\n";
@@ -33,9 +33,11 @@ namespace engine{
             // Press F to full screen mode
             if(key == GLFW_KEY_F && action == GLFW_PRESS)
             {
-                auto mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-                glfwSetWindowPos(window, ORIGIN_POS_X, ORIGIN_POS_Y);
-                glfwSetWindowSize(window, mode->width, mode->height);
+                int xPos, yPos, width, height;
+                glfwGetMonitorWorkarea(glfwGetPrimaryMonitor(), &xPos, &yPos, &width, &height);
+                glfwSetWindowPos(window, xPos, yPos);
+
+                glfwSetWindowSize(window, width, height);
                 std::cout << "Engine goes full screen mode.\n";
             }
 
@@ -51,14 +53,14 @@ namespace engine{
             // TODO: have fun with when the window is focused and the alternative
             if(focused == GLFW_TRUE){
                 glfwFocusWindow(window);
-                glfwSetWindowOpacity(window, 1.0f);
+                glfwSetWindowOpacity(window, WINDOW_SOLID);
                 glfwSetWindowTitle(window, "The One and Only Engine.");
                 std::cout << "Engine window focused.\n";
             }
 
             else{
                 glfwSetWindowTitle(window, "Hey! Where are you going?");
-                glfwSetWindowOpacity(window, 0.86f);
+                glfwSetWindowOpacity(window, WINDOW_OPAQUE);
                 std::cout << "Engine window losses thy attention.\n";
             }
         }

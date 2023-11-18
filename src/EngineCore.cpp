@@ -5,7 +5,11 @@ namespace engine{
 
     void EngineCore::Init() {
         // give window properties
-        auto winProperties = WindowProperties{1600, 900, "Vulkan Engine", nullptr, nullptr};
+        auto winProperties = WindowProperties{
+            1600, 900,
+            "Vulkan Engine",
+            glfwGetPrimaryMonitor(),
+            nullptr};
 
         auto isWindowInit = mWindow.InitWindow(winProperties);
         if(!isWindowInit){
