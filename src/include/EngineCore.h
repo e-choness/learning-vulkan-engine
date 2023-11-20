@@ -6,9 +6,9 @@
 namespace engine{
     class EngineCore {
     public:
-        void Init();
-        void Run();
-        void CleanUp();
+        void init();
+        void run();
+        void cleanUp();
     private:
         EngineWindow mWindow;
         bool mIsRunning = false;

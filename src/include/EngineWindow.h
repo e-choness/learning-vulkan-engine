@@ -5,17 +5,12 @@
 #include <GLFW/glfw3.h>
 
 namespace engine{
-
-    struct WindowSize{
-        uint16_t Width;
-        uint16_t Height;
-    };
-
     struct WindowProperties{
-        WindowSize WindowSize ;
-        const char* WindowTitle;
-        GLFWmonitor* WindowMonitor;
-        GLFWwindow* WindowShare;
+        int Width {1600};
+        int Height {900};
+        const char* WindowTitle {"Vulkan Engine"};
+        GLFWmonitor* WindowMonitor {glfwGetPrimaryMonitor()};
+        GLFWwindow* WindowShare {nullptr};
     };
 
     class EngineWindow{
@@ -23,15 +18,15 @@ namespace engine{
         // Engine window basic functions
         EngineWindow()= default;
         ~EngineWindow() = default;
-        bool InitWindow(WindowProperties& winProperties);
-        void Run();
-        void CleanUp();
+        bool initWindow(WindowProperties& winProperties);
+        void run();
+        void cleanUp();
 
         // Additional functions
-        bool ShouldClose();
+        bool shouldClose();
 
     private:
-        void SetupGlfwCallbacks();
+        void setupGlfwCallbacks();
 
     private:
         WindowProperties mWinProperties;

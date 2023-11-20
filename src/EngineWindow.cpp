@@ -15,15 +15,15 @@ namespace engine{
         const float WINDOW_SOLID = 1.0f;
         const float WINDOW_OPAQUE = 0.86f;
 
-        void WindowErrorCallback(int error, const char* description){
+        void windowErrorCallback(int error, const char* description){
             std::cerr << "Window error: " <<  error << description << "\n";
         }
 
-        void WindowCloseCallback(GLFWwindow* window){
+        void windowCloseCallback(GLFWwindow* window){
             glfwSetWindowShouldClose(window, GLFW_TRUE);
         }
 
-        void WindowKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
+        void windowKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
             // Press ESC to close window
             if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
             {
@@ -67,7 +67,7 @@ namespace engine{
             }
         }
 
-        void WindowFocusCallback(GLFWwindow* window, int focused){
+        void windowFocusCallback(GLFWwindow* window, int focused){
             // TODO: have fun with when the window is focused and the alternative
             if(focused == GLFW_TRUE){
 
@@ -83,11 +83,11 @@ namespace engine{
             }
         }
 
-        void WindowSizeCallback(GLFWwindow* window, int width, int height){
+        void windowSizeCallback(GLFWwindow* window, int width, int height){
             glfwSetWindowSize(window, width, height);
         }
 
-        void WindowCursorPositionCallback(GLFWwindow* window, double x, double y){
+        void windowCursorPositionCallback(GLFWwindow* window, double x, double y){
             // TODO: show cursor position when left mouse is clicked
             // Left mouse click to show cursor position
             // Dragging mouse click will update the position in the next update?
@@ -99,7 +99,7 @@ namespace engine{
 
 
 
-        void WindowIconifyCallback(GLFWwindow* window, int iconified){
+        void windowIconifyCallback(GLFWwindow* window, int iconified){
             if(iconified == GLFW_TRUE){
                 glfwSetWindowTitle(window, "I'm here, sitting in the corner.");
                 std::cout << "Dear engine is in the little corner.\n";
@@ -110,9 +110,9 @@ namespace engine{
         }
     }
 
-    bool EngineWindow::InitWindow(WindowProperties& windowProperties) {
+    bool EngineWindow::initWindow(WindowProperties& winProperties) {
         // Initialize window with properties
-        mWinProperties = windowProperties;
+        mWinProperties = winProperties;
 
         // GLFW initialization
         auto isInitialized = glfwInit();
@@ -123,47 +123,52 @@ namespace engine{
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
+        // OpenGL context setup
+//        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+//        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+
         // Create GLFW window
         mGlfwWindow = glfwCreateWindow(
-                mWinProperties.WindowSize.Width,
-                mWinProperties.WindowSize.Height,
+                mWinProperties.Width,
+                mWinProperties.Height,
                 mWinProperties.WindowTitle,
                 mWinProperties.WindowMonitor,
                 mWinProperties.WindowShare);
 
         if(!mGlfwWindow){
+            glfwTerminate();
             return false;
         }
 
-        SetupGlfwCallbacks();
+        setupGlfwCallbacks();
 
         return true;
     }
 
-    void EngineWindow::SetupGlfwCallbacks() {
+    void EngineWindow::setupGlfwCallbacks() {
         // Set up window callback events
-        glfwSetErrorCallback(WindowErrorCallback);
-        glfwSetWindowCloseCallback(mGlfwWindow, WindowCloseCallback);
-        glfwSetKeyCallback(mGlfwWindow, WindowKeyCallback);
-        glfwSetWindowFocusCallback(mGlfwWindow, WindowFocusCallback);
-        glfwSetWindowSizeCallback(mGlfwWindow, WindowSizeCallback);
-        glfwSetCursorPosCallback(mGlfwWindow, WindowCursorPositionCallback);
-        glfwSetWindowIconifyCallback(mGlfwWindow, WindowIconifyCallback);
+        glfwSetErrorCallback(windowErrorCallback);
+        glfwSetWindowCloseCallback(mGlfwWindow, windowCloseCallback);
+        glfwSetKeyCallback(mGlfwWindow, windowKeyCallback);
+        glfwSetWindowFocusCallback(mGlfwWindow, windowFocusCallback);
+        glfwSetWindowSizeCallback(mGlfwWindow, windowSizeCallback);
+        glfwSetCursorPosCallback(mGlfwWindow, windowCursorPositionCallback);
+        glfwSetWindowIconifyCallback(mGlfwWindow, windowIconifyCallback);
     }
 
-    void EngineWindow::Run(){
+    void EngineWindow::run(){
         // Swap buffers should have OpenGL or OpenGL ES context, it's not setup yet.
 //        glfwSwapBuffers(mGlfwWindow);
 
         glfwPollEvents();
     }
 
-    void EngineWindow::CleanUp() {
+    void EngineWindow::cleanUp() {
         glfwDestroyWindow(mGlfwWindow);
         glfwTerminate();
     }
 
-    bool EngineWindow::ShouldClose() {
+    bool EngineWindow::shouldClose() {
         return glfwWindowShouldClose(mGlfwWindow);
     }
 

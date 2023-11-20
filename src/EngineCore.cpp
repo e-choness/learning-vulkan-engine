@@ -3,7 +3,7 @@
 
 namespace engine{
 
-    void EngineCore::Init() {
+    void EngineCore::init() {
         // give window properties
         auto winProperties = WindowProperties{
             1600, 900,
@@ -11,7 +11,7 @@ namespace engine{
             glfwGetPrimaryMonitor(),
             nullptr};
 
-        auto isWindowInit = mWindow.InitWindow(winProperties);
+        auto isWindowInit = mWindow.initWindow(winProperties);
         if(!isWindowInit){
             std::cerr << "GLFW Window failed to initialize.\n";
             return;
@@ -22,16 +22,16 @@ namespace engine{
         std::cout << "Engine initialized\n";
     }
 
-    void EngineCore::Run() {
+    void EngineCore::run() {
         while (mIsRunning) {
             //TODO: Engine Running Logic Here
-            mWindow.Run();
-            mIsRunning = !mWindow.ShouldClose();
+            mWindow.run();
+            mIsRunning = !mWindow.shouldClose();
         }
     }
 
-    void EngineCore::CleanUp() {
-        mWindow.CleanUp();
+    void EngineCore::cleanUp() {
+        mWindow.cleanUp();
         std::cout << "Engine cleaned up.\n";
     }
 }
