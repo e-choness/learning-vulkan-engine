@@ -7,8 +7,8 @@
 int main([[maybe_unused]]int argc, [[maybe_unused]]char **argv){
 
     auto engine = engine::EngineCore();
-    engine.Init();
-    engine.Run();
-    engine.CleanUp();
+    engine.init();
+    engine.run();
+    engine.cleanUp();
     return 0;
 }
